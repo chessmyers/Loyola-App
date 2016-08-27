@@ -1,0 +1,28 @@
+﻿Features:
+STUFF
+-GPA Calculator
+-School Map
+-Easy Q access
+-Easy Canvas Access
+-Cub Calendar
+-Schedules
+-School Weather
+-Quote of the day
+LINKS:
+-Call school
+-Email School
+-School youtube
+-School flickr
+-School instagram
+-School Facebook
+-School twitter
+-Loyola info
+-School mission statements
+-School images from flickr page
+-Customizable layout, out most-used features in the forefront
+-Settings page -- change background, color scheme, font size, other things
+-About page with our names of course
+-Access to loyola broadcasts
+-Clean and more modern UI than existing cubinfo app
+-Basically mobile version of school website, so all features and info that is available online
+-Sign-in feature with your class schedule plus reminders and notifications

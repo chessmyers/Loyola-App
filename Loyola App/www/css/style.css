@@ -1,0 +1,66 @@
+/* Empty. Add your own CSS if you like */
+
+.likes {
+   background: #F65A5B ;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ font-size: 15px;
+   line-height: 40px;
+   min-width: 40px;
+   height: 40px;
+   border-radius: 50%;
+ margin: 0 -30px 0 40px;
+   text-align: center;
+   font-weight: 200;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   transition: background 500ms;
+}
+
+.title {
+    font-size: 40px;
+    font-style: italic;
+}
+
+.links {
+   background: #F65A5B ;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ font-size: 15px;
+ height:50px;
+ width:50px;
+   line-height: 40px;
+   border-radius: 50%;
+ /*margin: 10px 10px 10px 10px;  */
+   text-align: center;
+   font-weight: 200;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+   transition: background 500ms;
+   float:inherit;
+   margin-left: 30%;
+   margin-top: 15px;
+   
+
+       
+}
+
+h4 {
+    text-align: center;
+ 
+}
+
+.linkdiv {
+    width: 49%;
+    display: inline-block;
+/*    border: 1px solid red;    */
+}
+
+.gpatbox {
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.gpalabel {
+    font-size: 130%;
+}

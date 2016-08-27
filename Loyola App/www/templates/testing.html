@@ -1,0 +1,103 @@
+﻿<ion-view view-title="Testing Features">
+    <ion-content>
+        <p ng-init="title = 'Angular'; optIn = true; check = true; check2 = true">
+            <input type="text" ng-model="title">
+            is bound to
+            "<strong ng-bind="title"></strong>".
+            Change it!
+
+            <ion-toggle ng-model="optIn"></ion-toggle>
+            is bound to
+            <strong ng-bind="optIn"></strong>.
+            Change it!
+            <br /><br />
+
+            <input type="checkbox" ng-model="check2"></input>
+            is bound to
+            <strong ng-bind="check2"></strong>
+            Change it!
+            <br /><hr />
+
+            <ion-checkbox ng-model="check"></ion-checkbox>
+            is bound to
+            <strong ng-bind="check"></strong>
+            Change it!
+            <br /><br /><hr />
+
+            <ion-toggle ng-init='state = "Im On!"' ng-model='state'
+                        ng-true-value='"Im On!"' ng-false-value='"Im Off!"'></ion-toggle>
+            is bound to
+            "<strong ng-bind="state"></strong>".
+            Change it!
+            <br /><br /><br />
+
+            <ion-list>
+                <ion-item>
+                    I love kittens!
+                    <ion-option-button class="button-positive" ng-click="">Share</ion-option-button>
+                    <ion-option-button class="button-assertive">Edit</ion-option-button>
+                </ion-item>
+            </ion-list>
+            <hr />
+
+            <div ng-init='answer = "maybe"'>
+                <ion-radio ng-model='answer' value='yesss'> Yes </ion-radio>
+                <ion-radio ng-model='answer' value='no'> No </ion-radio>
+                <ion-radio ng-model='answer' value='maybe'> Maybe </ion-radio>
+                is bound to
+                "<strong ng-bind="answer"></strong>".
+                Change it!
+            </div>
+
+
+            <div ng-controller="MainController">
+
+                <span>
+                    {{ title }}
+
+                </span>
+
+                <span class="likes" ng-click="plus()">{{ likes }}</span>
+
+                <ion-list>
+                    <ion-item>{{ item1 }}</ion-item>
+                    <ion-item>{{ item2 }}</ion-item>
+                    <ion-item>{{ item3 }}</ion-item>
+                </ion-list>
+
+
+
+
+            </div>
+
+
+
+        </p>
+
+        <div ng-controller="MainController">
+            <h3>Value 1:</h3> <input type="text" ng-model="val1">
+            "<strong ng-bind="val1"></strong>"
+
+            <h3>Value 2:</h3> <input type="text" ng-model="val2">
+            "<strong ng-bind="val2"></strong>"
+
+            <h3>Value 3:</h3> <input type="text" ng-model="val3">
+            "<strong ng-bind="val3"></strong>"
+
+            <h3>Value 4</h3> <input type="text" ng-model="val4">
+            "<strong ng-bind="val4"></strong>"
+
+            <h3>Value 5:</h3> <input type="text" ng-model="val5">
+            "<strong ng-bind="val5"></strong>"
+
+            <p>
+                {{ val1 + val2 + val3 + val4 + val5 }}
+            </p>
+
+
+        </div>
+        <button class="button button-block button-balanced">
+            Calculate GPA!
+        </button>
+    </ion-content>
+</ion-view>
