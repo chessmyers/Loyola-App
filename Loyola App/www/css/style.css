@@ -40,14 +40,32 @@
    float:inherit;
    margin-left: 30%;
    margin-top: 15px;
-   
 
-       
+
+
 }
+
+p{
+  font-family: monospace;
+  text-align: center;
+
+}
+
+h1{
+  font-family: monospace;
+  font-weight: thin;
+  font-stretch: extra-expanded;
+
+}
+
+h5 {
+    text-align: center;
+    font-family: monospace;
 
 h4 {
     text-align: center;
- 
+    font-family: monospace;
+
 }
 
 .linkdiv {
