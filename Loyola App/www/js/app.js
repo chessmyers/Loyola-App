@@ -216,5 +216,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
+    .state('app.bells', {
+        url: '/bells',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/bells.html'
+            }
+        }
+    })
+
     $urlRouterProvider.otherwise('/app/main');
 });
