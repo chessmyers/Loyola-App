@@ -102,29 +102,52 @@ app.run(function ($ionicPlatform) {
 })
 
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  $ionicConfigProvider.tabs.position('bottom'); // other values: top
+
     $stateProvider
 
       .state('app', {
           url: '/app',
           abstract: true,
-          templateUrl: 'templates/main.html',
+          templateUrl: 'templates/tabs.html',
           controller: 'MainController'
       })
 
-    .state('app.home', {
-        url: '/home',
+    .state('app.main', {
+        url: '/main',
         views: {
-            'menuContent': {
-                templateUrl: 'templates/home.html'
+            'main-tab': {
+                templateUrl: 'templates/main.html'
             }
         }
     })
 
+    .state('app.loyalist', {
+        url: '/loyalist',
+        views: {
+            'loyalist-tab': {
+                templateUrl: 'templates/loyalist.html'
+            }
+        }
+    })
+
+    .state('app.loyolaChat', {
+        url: '/loyolaChat',
+        views: {
+            'loyolaChat-tab': {
+                templateUrl: 'templates/loyolaChat.html'
+            }
+        }
+    })
+
+    
+
     .state('app.gpa', {
         url: '/gpa',
         views: {
-            'menuContent': {
+            'main-tab': {
                 templateUrl: 'templates/gpa.html'
             }
         }
@@ -133,7 +156,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('app.map', {
         url: '/map',
         views: {
-            'menuContent': {
+            'main-tab': {
                 templateUrl: 'templates/map.html'
             }
         }
@@ -142,7 +165,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('app.weather', {
             url: '/weather',
             views: {
-                'menuContent': {
+                'main-tab': {
                     templateUrl: 'templates/weather.html'
                 }
             }
@@ -151,7 +174,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('app.howtogpa', {
         url: '/howtogpa',
         views: {
-            'menuContent': {
+            'main-tab': {
                 templateUrl: 'templates/howtogpa.html'
             }
         }
@@ -160,11 +183,38 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('app.testing', {
         url: '/testing',
         views: {
-            'menuContent': {
+            'main-tab': {
                 templateUrl: 'templates/testing.html'
             }
         }
     })
 
-    $urlRouterProvider.otherwise('/app/home');
+    .state('app.profile', {
+        url: '/profile',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/profile.html'
+            }
+        }
+    })
+
+    .state('app.settings', {
+        url: '/settings',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/settings.html'
+            }
+        }
+    })
+
+    .state('app.announcements', {
+        url: '/announcements',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/announcements.html'
+            }
+        }
+    })
+
+    $urlRouterProvider.otherwise('/app/main');
 });

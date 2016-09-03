@@ -1,4 +1,144 @@
-﻿<ion-side-menus enable-menu-with-back-views="false">
+﻿<ion-view view-title="Cub Tools">
+    
+    <ion-content>
+        
+        <ion-side-menus>    
+            
+            <!--Middle Content-->
+            <ion-side-menu-content>
+                
+                
+                <div class="list card padding">
+                    
+                    <a class="button button-block button-royal padding" href="#/app/announcements">
+                        Daily Announcements
+                    </a>
+                    <a class="button button-block button-balanced padding" href="#/app/gpa">
+                        Loyola GPA Calculator
+                    </a>
+                    <button class="button button-block button-assertive padding ">
+                        Canvas
+                    </button>
+                    <button class="button button-block button-positive padding">
+                        QPortal
+                    </button>
+                    <button class="button button-block button-dark padding">
+                        Calandar
+                    </button>
+                    <button class="button button-block button-energized padding">
+                        Bell Schedule
+                    </button>
+                    <button class="button button-block button-calm padding" menu-toggle="right">
+                        More
+                    </button>
+                    <br />
+                </div>
+
+            </ion-side-menu-content>
+
+            <!-- Right menu -->
+            <ion-side-menu side="right">
+         <!--       <ion-header-bar class="bar-balanced">
+                    <h1 class="title">Loyola Quick Links</h1>
+                </ion-header-bar> -->
+                <ion-content>
+                    <div ng-controller="MainController">
+                        <div class="linkdiv">
+                            <button class="button icon ion-email button-stable links"></button>
+                            <h4>Email</h4>
+                        </div>
+
+                        <div class="linkdiv">
+                            <button class="button icon ion-ios-telephone button-balanced links"></button>
+                            <h4>Call</h4>
+                        </div>
+
+                        <div class="linkdiv">
+                            <a class="button icon ion-map button-balanced links" href="#/app/map" style="background-color:yellowgreen"></a>
+                            <h4>Map</h4>
+                        </div>
+
+                        <div class="linkdiv">
+                            <a class="button icon ion-cloud button-balanced links" href="#/app/weather" style="background-color:lightsalmon;"></a>
+                            <h4>Weather</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="youtube()">
+                            <button class="button icon ion-social-youtube button-assertive links"></button>
+                            <h4>Youtube</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="flickr()">
+                            <button class="button icon ion-images button-royal links"></button>
+                            <h4>Flickr</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="instagram()">
+                            <button class="button icon ion-social-instagram button-energized links"></button>
+                            <h4>Instagram</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="twitter()">
+                            <button class="button icon ion-social-twitter button-calm links"></button>
+                            <h4>Twitter</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="facebook()">
+                            <button class="button icon ion-social-facebook button-positive links"></button>
+                            <h4>Facebook</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="website()">
+                            <button class="button icon ion-earth button-dark links"></button>
+                            <h4>Website</h4>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-side-menu>
+
+        <!-- Left Menu  -->
+            <ion-side-menu side="left">
+                <ion-header-bar class="bar-royal">
+                    <h1 class="title">Account</h1>
+                </ion-header-bar>
+
+                <ion-content>
+                    <ion-list>
+                        <div class="list">
+
+                            <a menu-close class="item item-icon-left">
+                                <i class="icon ion-close"></i>
+                                Close
+                            </a>
+
+                            <div class="item item-divider">
+                                Options
+                            </div>
+
+                            <a menu-close class="item item-icon-left" href="#/app/profile">
+                                <i class="icon ion-person"></i>
+                                Your Profile
+                            </a>
+
+                            <a menu-close class="item item-icon-left" href="#/app/settings">
+                                <i class="icon ion-gear-a"></i>
+                                App Settings
+                            </a>
+                        </div>
+
+                    </ion-list>
+                </ion-content>
+            </ion-side-menu>
+
+        </ion-side-menus>
+
+
+    </ion-content>
+</ion-view>
+
+<!--
+
+<ion-side-menus enable-menu-with-back-views="false">
 
 
     <ion-side-menu-content>
@@ -13,13 +153,17 @@
             <ion-nav-buttons side="right">
                 <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
             </ion-nav-buttons>
-
+            
         </ion-nav-bar>
         <ion-nav-view name="menuContent"></ion-nav-view>
+        
+
+        
+        
     </ion-side-menu-content>
 
 
-
+    Left Menu
     <ion-side-menu side="left">
         <ion-header-bar class="bar-royal">
             <h1 class="title">Tools</h1>
@@ -58,7 +202,7 @@
                     </a>
 
                 </div>
- <!--
+
                 <ion-item menu-close ng-click="login()">
                     Login
                 </ion-item>
@@ -71,7 +215,7 @@
                 <ion-item menu-close href="#/app/playlists">
                     Playlists
                 </ion-item>
-     -->
+     
 
             </ion-list>
         </ion-content>
@@ -79,7 +223,7 @@
 
 
 
-    <!--Right menu-->
+    Right menu
     <ion-side-menu side="right">
         <ion-header-bar class="bar-balanced">
             <h1 class="title">Loyola Quick Links</h1>
@@ -130,3 +274,4 @@
     </ion-side-menu>
 
 </ion-side-menus>
+    -->
