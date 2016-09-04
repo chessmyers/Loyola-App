@@ -1,5 +1,250 @@
 ﻿<ion-view view-title="Bell Schedule">
-    <ion-content>
+    <ion-content ng-controller="MainController">
+        <div class="button-bar">
+            <a class="button button-royal" ng-click="changeschedule(1)">Schedule 1</a>
+            <a class="button button-balanced" ng-click="changeschedule(2)">Schedule 2</a>
+            <a class="button button-calm" ng-click="changeschedule(3)">Schedule 3</a>
+        </div>
+        <div class="button-bar">
+            <a class="button button-energized" ng-click="changeschedule(4)">Schedule 4</a>
+            <a class="button button-assertive" ng-click="changeschedule(5)">Schedule 5</a>
+            <a class="button button-positive" ng-click="changeschedule(6)">Schedule 6</a>
+        </div>
+        <div class="button-bar">
+            <a class="button button-dark" ng-click="changeschedule(7)">Schedule 7</a>
+        </div>
         
+        <div class="row">
+            <div class="col">  </div>
+        </div>
+            
+        <!--Schedule 1-->
+        <div ng-show="vis1">
+            <h3 class="schedule">SCHEDULE 1 - (70 minutes)</h3>
+            <i>Typical mid-week schedule</i>
+            <div class="row">
+                <div class="col">Hour 1</div>
+                <div class="col">8 : 05 -  9 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2 (73 min.)</div>
+                <div class="col">9 : 23 - 10 : 36</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (15 min.)</div>
+                <div class="col">10 : 36 - 10 : 51</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">10 : 56 - 12 : 06</div>
+            </div>
+            <div class="row">
+                <div class="col">Lunch (42 min.)</div>
+                <div class="col">12 : 06 - 12 : 48</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 4</div>
+                <div class="col">12 : 53 - 2 : 03</div>
+            </div>
+            <div class="row">
+                <div class="col">OH/HR/FT</div>
+                <div class="col">2 : 03 - 2 : 30</div>
+            </div>
+         </div>
+        <!--Schedule 2-->
+        <div ng-show="vis2">
+            <h3 class="schedule">SCHEDULE 2 - (65 minutes)</h3>
+            <i>First Day of the week</i>
+            <div class="row">
+                <div class="col">Hour 1</div>
+                <div class="col">8 : 05 -  9 : 10</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2 (68 min.)</div>
+                <div class="col">9 : 18 - 10 : 26</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (15 min.)</div>
+                <div class="col">10 : 26 - 10 : 41</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">10 : 46 - 11 : 51</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 4</div>
+                <div class="col">11 : 59 - 1 : 04</div>
+            </div>
+            <div class="row">
+                <div class="col">Lunch (39 min.)</div>
+                <div class="col">1 : 04 - 1 : 43</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 5</div>
+                <div class="col">1 : 48 - 2 : 53</div>
+            </div>
+        </div>
+        <!--Schedule 3-->
+        <div ng-show="vis3">
+            <h3 class="schedule">SCHEDULE 3 - (70 minutes)</h3>
+            <i>Proposed Friday: 2-break-2</i>
+            <div class="row">
+                <div class="col">Hour 1 (70 min)</div>
+                <div class="col">8 : 05 -  9 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2 (73 min.)</div>
+                <div class="col">9 : 23 - 10 : 36</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (24 min.)</div>
+                <div class="col">10 : 36 - 11 : 00</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">11 : 05 - 12 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 4</div>
+                <div class="col">12 : 23 - 1 : 33</div>
+            </div>  
+        </div>
+        <!--Schedule 4-->
+        <div ng-show="vis4">
+            <h3 class="schedule">SCHEDULE 4 - (70 minutes)</h3>
+            <i>Flex time before lunch</i><br /><i>Used for most homerooms</i>
+            <div class="row">
+                <div class="col">Hour 1</div>
+                <div class="col">8 : 05 -  9 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2 (73 min.)</div>
+                <div class="col">9 : 23 - 10 : 36</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (15 min.)</div>
+                <div class="col">10 : 36 - 10 : 51</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">10 : 56 - 12 : 06</div>
+            </div>
+            <div class="row">
+                <div class="col">Flex Time</div>
+                <div class="col">12 : 06 - 12 : 33</div>
+            </div>
+            <div class="row">
+                <div class="col">Lunch (42 min.)</div>
+                <div class="col">12 : 33 - 1 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 4</div>
+                <div class="col">1 : 28 - 2 : 30</div>
+            </div>
+        </div>
+        <!--Schedule 5-->
+        <div ng-show="vis5">
+            <h3 class="schedule">SCHEDULE 5 - (70 minutes)</h3>
+            <i>Short Flex Time</i>
+            <div class="row">
+                <div class="col">Hour 1</div>
+                <div class="col">8 : 05 -  9 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2 (73 min.)</div>
+                <div class="col">9 : 23 - 10 : 36</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (15 min.)</div>
+                <div class="col">10 : 36 - 10 : 51</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">10 : 56 - 12 : 06</div>
+            </div>
+            <div class="row">
+                <div class="col">Flex Time</div>
+                <div class="col">12 : 06 - 12 : 21</div>
+            </div>
+            <div class="row">
+                <div class="col">Lunch (42 min.)</div>
+                <div class="col">12 : 21 - 1 : 03</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 4</div>
+                <div class="col">1 : 08 - 2 : 18</div>
+            </div>
+        </div>
+        <!--Schedule 6-->
+        <div ng-show="vis6">
+            <h3 class="schedule">SCHEDULE 6 - (70 minutes)</h3>
+            <i>Liturgy schedule</i>
+            <div class="row">
+                <div class="col">Hour 1</div>
+                <div class="col">8 : 05 -  9 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (15 min.)</div>
+                <div class="col">9 : 15 - 9 : 30</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2</div>
+                <div class="col">9 : 35 - 10 : 45</div>
+            </div>
+            <div class="row">
+                <div class="col"><b>LITURGY</b></div>
+                <div class="col">10 : 53 - 12 : 03</div>
+            </div>
+            <div class="row">
+                <div class="col">Flex Time</div>
+                <div class="col">12 : 03 - 12 : 33</div>
+            </div>
+            <div class="row">
+                <div class="col">Lunch (42 min.)</div>
+                <div class="col">12 : 33 - 1 : 15</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">1 : 20 - 2 : 30</div>
+            </div>
+        </div>
+        <!--Schedule 7-->
+        <div ng-show="vis7">
+            <h3 class="schedule">SCHEDULE 7 - (65 minutes)</h3>
+            <i>First day of the week,</i><br /><i>Faculty meeting</i>
+            <div class="row">
+                <div class="col">Faculty Mtg</div>
+                <div class="col">8 : 05 -  9 : 10</div>
+            </div>
+            <div class="row">
+                <div class="col">Classes begin at</div>
+                <div class="col">9 : 18 A.M.</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 1 (68 min.)</div>
+                <div class="col">9 : 18 - 10 - 26</div>
+            </div>
+            <div class="row">
+                <div class="col">Recess (15 min.)</div>
+                <div class="col">10 : 26 - 10 : 41</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 2</div>
+                <div class="col">10 : 46 - 11 : 51</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 3</div>
+                <div class="col">11 : 59 - 1 : 04</div>
+            </div>
+            <div class="row">
+                <div class="col">Lunch (39 min.)</div>
+                <div class="col">1 : 04 - 1 : 43</div>
+            </div>
+            <div class="row">
+                <div class="col">Hour 4</div>
+                <div class="col">1 : 48 - 2 : 53</div>
+            </div>
+        </div>
+
     </ion-content>
 </ion-view>

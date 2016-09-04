@@ -48,6 +48,44 @@ app.controller('MainController', ['$scope', function ($scope) {
 
     };
 
+    $scope.vis1 = true;
+    $scope.vis2 = false;
+    $scope.vis3 = false;
+    $scope.vis4 = false;
+    $scope.vis5 = false;
+    $scope.vis6 = false;
+    $scope.vis7 = false;
+
+    $scope.changeschedule = function (n) {
+      switch (n) {
+          case 1:
+              $scope.vis1 = true; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
+              break;
+          case 2:
+              $scope.vis1 = false; $scope.vis2 = true; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
+              break;
+          case 3:
+              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = true; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
+              break;
+          case 4:
+              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = true; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
+              break;
+          case 5:
+              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = true; $scope.vis6 = false; $scope.vis7 = false;
+              break;
+          case 6:
+              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = true; $scope.vis7 = false;
+              break;
+          case 7:
+              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = true;
+              break;
+          default:
+              $scope.vis1 = true; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
+           
+        };
+        
+    };
+
     $scope.twitter = function () {
         window.open("https://twitter.com/LoyolaHS");
     };

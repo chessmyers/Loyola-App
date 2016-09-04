@@ -83,3 +83,16 @@ h4 {
 .gpalabel {
     font-size: 130%;
 }
+
+h3.schedule {
+    font-weight: bold;
+}
+
+i {
+    font-style:italic;
+    font-size:120%;
+}
+
+.row {
+    font-size: 150%;
+}
