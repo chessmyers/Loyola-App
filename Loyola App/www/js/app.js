@@ -28,23 +28,31 @@ app.controller('MainController', ['$scope', function ($scope) {
     $scope.val4 = 0;
     $scope.val5 = 0;
 
-    $scope.grade1 = 0;
-    $scope.grade2 = 0;
-    $scope.grade3 = 0;
-    $scope.grade4 = 0;
-    $scope.grade5 = 0;
-    $scope.grade6 = 0;
-    $scope.grade7 = 0;
-
-    $scope.level1 = 0;
-    $scope.level2 = 0;
-    $scope.level3 = 0;
-    $scope.level4 = 0;
-    $scope.level5 = 0;
-    $scope.level6 = 0;
-    $scope.level7 = 0;
 
     $scope.calculateGPA = function ($scope) {
+        // Grade calculation function, first stores all grade values and course modifiers in disposable variables, 
+        // Element id's correspond to function (gs1 = grade select #1)
+        // Now just to figure out the grade calculation formula loyola uses      
+        var i;
+        var grade = new Array();
+        var level = new Array();
+    
+        for (var p = 1; p <= 7; p++)
+        {
+            p = p.toString();
+            i = document.getElementById("gs" + p).valueOf();
+            grade[p] = i.options[i.selectedIndex].value;
+            i = document.getElementById("ls" + p).valueOf();
+            level[p] = i.options[i.selectedIndex].value;
+        }   
+
+        for (var j = 1; j <= 7; j++)
+        {
+            grade[j] = parseFloat(grade[j]);
+            level[j] = parseFloat(level[j]);
+        }
+       
+        document.getElementById("test").innerText = (grade[1] + grade[2] + grade[3] + grade[4] + grade[5] + grade[6] + grade[7]) / 7;
 
     };
 
@@ -108,6 +116,11 @@ app.controller('MainController', ['$scope', function ($scope) {
 
     $scope.website = function () {
         window.open("http://www.loyolahs.edu/");
+    };
+
+    $scope.opencanvas = function () {
+        window.open("http://www.bing.com", "_self");
+        ref.addEventListener('loadstart', function () { alert(event.url); });
     };
 
 }]);
@@ -259,6 +272,24 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'main-tab': {
                 templateUrl: 'templates/bells.html'
+            }
+        }
+    })
+
+    .state('app.qportal', {
+        url: '/qportal',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/qportal.html'
+            }
+        }
+    })
+
+    .state('app.canvas', {
+        url: '/canvas',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/canvas.html'
             }
         }
     })
