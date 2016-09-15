@@ -42,17 +42,28 @@ app.controller('MainController', ['$scope', function ($scope) {
             p = p.toString();
             i = document.getElementById("gs" + p).valueOf();
             grade[p] = i.options[i.selectedIndex].value;
-            i = document.getElementById("ls" + p).valueOf();
-            level[p] = i.options[i.selectedIndex].value;
+            i = document.getElementById("ls" + p).checked;
+            level[p] = i;
         }   
 
         for (var j = 1; j <= 7; j++)
         {
             grade[j] = parseFloat(grade[j]);
-            level[j] = parseFloat(level[j]);
         }
-       
-        document.getElementById("test").innerText = (grade[1] + grade[2] + grade[3] + grade[4] + grade[5] + grade[6] + grade[7]) / 7;
+
+        finalGrade = 0;
+
+        for (var k = 1; k <= 7; k++)
+        {
+            finalGrade += grade[k];
+            finalGrade += level[k];
+        }
+
+        finalGrade = finalGrade / 7;
+        finalGrade = finalGrade.toFixed(2);
+
+        document.getElementById("test").innerText = finalGrade;
+            //(grade[1] + grade[2] + grade[3] + grade[4] + grade[5] + grade[6] + grade[7]) / 7;
 
     };
 
