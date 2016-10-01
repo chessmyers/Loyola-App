@@ -102,3 +102,13 @@ i {
     text-align:center;
     padding-bottom:10px;
 }
+
+#disp {
+    font-size:200%;
+    text-align:center;
+}
+
+#gpabut {
+    font-size: 130%;
+    padding: 10px;
+}

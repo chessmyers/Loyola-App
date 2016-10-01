@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
@@ -8766,6 +8766,33 @@ progress {
         background-color: #886aea;
         box-shadow: none;
         color: #fff; }
+
+      .button.button-salmon {
+    border-color: transparent;
+    background-color: #ff6699;
+    color: #fff; }
+    .button.button-salmon:hover {
+      color: #fff;
+      text-decoration: none; }
+    .button.button-salmon.active, .button.button-salmon.activated {
+      background-color: #ff3377; }
+    .button.button-salmon.button-clear {
+      border-color: transparent;
+      background: none;
+      box-shadow: none;
+      color: #ff6699; }
+    .button.button-salmon.button-icon {
+      border-color: transparent;
+      background: none; }
+    .button.button-salmon.button-outline {
+      border-color: #ff6699;
+      background: transparent;
+      color: #ff6699; }
+      .button.button-salmon.button-outline.active, .button.button-salmon.button-outline.activated {
+        background-color: #ff6699;
+        box-shadow: none;
+        color: #fff; }
+
   .button.button-dark {
     border-color: transparent;
     background-color: #444;

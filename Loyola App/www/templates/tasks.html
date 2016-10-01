@@ -1,0 +1,64 @@
+﻿<ion-view view-title="Manage Tasks">
+    <ion-content>
+
+        <ion-header-bar class="bar-positive">
+            <div class="buttons">
+                <button class="button button-icon icon ion-ios-minus-outline"
+                        ng-click="data.showDelete = !data.showDelete; data.showReorder = false">Delete</button>
+            </div>
+            <h1 class="title"></h1>
+            <div class="buttons">
+                <button class="button button-icon icon ion-drag" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+                    Reorder
+                </button>
+                <button class="button button-icon icon ion-plus" ng-click="addItem()">
+                    Add
+                </button>
+            </div>
+        </ion-header-bar>
+        <br /><br />
+
+        <ion-list show-delete="data.showDelete" show-reorder="data.showReorder" type="card">
+
+            <ion-item ng-repeat="item in items"
+                      item="item"
+                       class="item-remove-animate">
+                {{ item }}
+                <ion-delete-button class="ion-minus-circled"
+                                   ng-click="onItemDelete(item)">
+                </ion-delete-button>
+                <ion-option-button class="button-assertive"
+                                   ng-click="edit(item)">
+                    Edit
+                </ion-option-button>
+                <ion-option-button class="button-calm"
+                                   ng-click="share(item)">
+                    Share
+                </ion-option-button>
+                <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+            </ion-item>
+
+        </ion-list>
+
+        <!--
+        <h2>Add New Task</h2>
+        <ul>
+            <li ng-repeat="layout in layoutlist">
+                <a class="button button-small button-royal padding" href="" ng-click="add_layout(layout)">
+                    {{layout.fullname}}
+                </a>
+            </li>
+        </ul>
+        <br>
+        <h2>Template</h2>
+        <ul class="chosen" dnd-list="model">
+            <ion-list ng-repeat="chosen in chosenlist track by chosen.id">
+               <ion-item> {{chosen.fullname}} <a href="" ng-click="del_chosen($index)">remove block</a> </ion-item>
+            </ion-list>
+        </ul>
+        -->
+
+
+
+    </ion-content>
+</ion-view>
