@@ -13,16 +13,16 @@
                     <a class="button button-block button-royal padding" href="#/app/announcements">
                         Daily Announcements
                     </a>
-                    <a class="button button-block button-dark padding">
+                    <a class="button button-block button-dark padding" href="#/app/qportal">
                         Calandar
                     </a>
                     <a class="button button-block button-energized padding" href="#/app/bells">
                         Bell Schedule
                     </a>
-                    <a class="button button-block button-assertive padding" href="#/app/canvas">
+                    <a class="button button-block button-assertive padding" href="" ng-click="opencanvas()">
                         Canvas
                     </a>
-                    <a class="button button-block button-positive padding" href="#/app/qportal">
+                    <a class="button button-block button-positive padding" href="" ng-click="openq()">
                         QPortal
                     </a>
                     <a class="button button-block button-balanced padding" href="#/app/gpa">
@@ -47,17 +47,17 @@
                 <ion-content>
                     <div ng-controller="MainController">
                         <div class="linkdiv">
-                            <button class="button icon ion-email button-stable links"></button>
+                            <button class="button icon ion-email button-stable links" ng-click="sendmail()"></button>
                             <h4>Email</h4>
                         </div>
 
                         <div class="linkdiv">
-                            <button class="button icon ion-ios-telephone button-balanced links"></button>
+                            <button class="button icon ion-ios-telephone button-balanced links" ng-click="dialcall()"></button>
                             <h4>Call</h4>
                         </div>
 
                         <div class="linkdiv">
-                            <a class="button icon ion-map button-balanced links" href="#/app/map" style="background-color:yellowgreen"></a>
+                            <a class="button icon ion-map button-balanced links" href="" style="background-color:yellowgreen" ng-click="openmap()"></a>
                             <h4>Map</h4>
                         </div>
 

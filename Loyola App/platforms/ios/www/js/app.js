@@ -3,114 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic'])
-
-app.controller('MainController', ['$scope', function ($scope) {
-    $scope.title = 'This is a test string!';
-    $scope.likes = 0;
-
-    $scope.plus = function () {
-        $scope.likes += 1;
-    };
-
-    $scope.item1 = "Mario";
-    $scope.item2 = "Luigi";
-    $scope.item3 = "Peach";
-    $scope.show = true;
-
-    $scope.gotoSettings = function () {
-
-    };
-    
-    $scope.val1 = 0;
-    $scope.val2 = 0;
-    $scope.val3 = 0;
-    $scope.val4 = 0;
-    $scope.val5 = 0;
-
-    $scope.grade1 = 0;
-    $scope.grade2 = 0;
-    $scope.grade3 = 0;
-    $scope.grade4 = 0;
-    $scope.grade5 = 0;
-    $scope.grade6 = 0;
-    $scope.grade7 = 0;
-
-    $scope.level1 = 0;
-    $scope.level2 = 0;
-    $scope.level3 = 0;
-    $scope.level4 = 0;
-    $scope.level5 = 0;
-    $scope.level6 = 0;
-    $scope.level7 = 0;
-
-    $scope.calculateGPA = function ($scope) {
-
-    };
-
-    $scope.vis1 = true;
-    $scope.vis2 = false;
-    $scope.vis3 = false;
-    $scope.vis4 = false;
-    $scope.vis5 = false;
-    $scope.vis6 = false;
-    $scope.vis7 = false;
-
-    $scope.changeschedule = function (n) {
-      switch (n) {
-          case 1:
-              $scope.vis1 = true; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
-              break;
-          case 2:
-              $scope.vis1 = false; $scope.vis2 = true; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
-              break;
-          case 3:
-              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = true; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
-              break;
-          case 4:
-              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = true; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
-              break;
-          case 5:
-              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = true; $scope.vis6 = false; $scope.vis7 = false;
-              break;
-          case 6:
-              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = true; $scope.vis7 = false;
-              break;
-          case 7:
-              $scope.vis1 = false; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = true;
-              break;
-          default:
-              $scope.vis1 = true; $scope.vis2 = false; $scope.vis3 = false; $scope.vis4 = false; $scope.vis5 = false; $scope.vis6 = false; $scope.vis7 = false;
-           
-        };
-        
-    };
-
-    $scope.twitter = function () {
-        window.open("https://twitter.com/LoyolaHS");
-    };
-
-    $scope.instagram = function () {
-        window.open("https://www.instagram.com/loyolahigh/");
-    };
-
-    $scope.flickr = function () {
-        window.open("https://www.google.com");
-    };
-
-    $scope.youtube = function () {
-        window.open("https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined");
-    };
-
-    $scope.facebook = function () {
-        window.open("https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203");
-    };
-
-    $scope.website = function () {
-        window.open("http://www.loyolahs.edu/");
-    };
-
-}]);
+var app = angular.module('starter', ['ionic', 'ngPDFViewer'])
 
 function ContentController($scope, $ionicSideMenuDelegate) {
     $scope.toggleLeft = function () {
@@ -259,6 +152,33 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'main-tab': {
                 templateUrl: 'templates/bells.html'
+            }
+        }
+    })
+
+    .state('app.qportal', {
+        url: '/qportal',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/qportal.html'
+            }
+        }
+    })
+
+    .state('app.canvas', {
+        url: '/canvas',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/canvas.html'
+            }
+        }
+    })
+
+    .state('app.tasks', {
+        url: '/tasks',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/tasks.html'
             }
         }
     })

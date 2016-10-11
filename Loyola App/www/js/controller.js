@@ -120,8 +120,26 @@
     };
 
     $scope.opencanvas = function () {
-        window.open("http://www.bing.com", "_self");
-        ref.addEventListener('loadstart', function () { alert(event.url); });
+        var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', '_blank', 'location=yes');
+        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+
+    };
+
+    $scope.openq = function () {
+        var ref = cordova.InAppBrowser.open('http://sc.loyolahs.edu/', '_blank', 'location=yes');
+        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+    }
+
+    $scope.dialcall = function () {
+        window.open('tel:2133815121', '_system');
+    };
+
+    $scope.sendmail = function () {
+        var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
+    };
+
+    $scope.openmap = function () {
+        var ref = cordova.InAppBrowser.open('http://maps.google.com/maps?daddr=Loyola+High+School', '_system', 'location=yes');
     };
 
     $scope.data = {
@@ -131,7 +149,9 @@
     $scope.edit = function (item) {
         var ind = $scope.items.indexOf(item);
         var prom = prompt("Enter New Text for Task", $scope.items[ind]);
-        $scope.items[ind] = prom;
+        if (prom != null && prom != "") {
+            $scope.items[ind] = prom;
+        }
     };
     $scope.share = function (item) {
         alert('Share Item: ');
