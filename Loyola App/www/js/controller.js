@@ -1,4 +1,5 @@
 ﻿app.controller('MainController', ['$scope', function ($scope) {
+
     $scope.title = 'This is a test string!';
     $scope.likes = 0;
 
@@ -10,10 +11,6 @@
     $scope.item2 = "Luigi";
     $scope.item3 = "Peach";
     $scope.show = true;
-
-    $scope.gotoSettings = function () {
-
-    };
 
     $scope.val1 = 0;
     $scope.val2 = 0;
@@ -96,11 +93,12 @@
     };
 
     $scope.twitter = function () {
-        window.open("https://twitter.com/LoyolaHS");
+        var ref = cordova.InAppBrowser.open('https://twitter.com/LoyolaHS', '_system', 'location=yes');
     };
 
     $scope.instagram = function () {
-        window.open("https://www.instagram.com/loyolahigh/");
+        var ref = cordova.InAppBrowser.open('https://www.instagram.com/loyolahigh/', '_blank', 'location=yes');
+        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
     };
 
     $scope.flickr = function () {
@@ -108,15 +106,16 @@
     };
 
     $scope.youtube = function () {
-        window.open("https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined");
+        var ref = cordova.InAppBrowser.open('https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined', '_system', 'location=yes');
     };
 
     $scope.facebook = function () {
-        window.open("https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203");
+        var ref = cordova.InAppBrowser.open('https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203', '_system', 'location=yes');
     };
 
     $scope.website = function () {
-        window.open("http://www.loyolahs.edu/");
+        var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', '_blank', 'location=yes');
+        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
     };
 
     $scope.opencanvas = function () {
@@ -176,4 +175,16 @@
     $scope.items = ["Sample: Do Homework!", "Sample: Community Service!"]
 
 
+
+
+    $scope.ale = function() {
+    alert("Hey!");
+};
+
+
+ 
+
+
 }]);
+
+

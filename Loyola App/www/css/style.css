@@ -112,3 +112,9 @@ i {
     font-size: 130%;
     padding: 10px;
 }
+
+.profdiv {
+    font-size: 130%;
+    padding: 10px;
+    font-style:italic;
+}

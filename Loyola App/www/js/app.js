@@ -11,9 +11,6 @@ function ContentController($scope, $ionicSideMenuDelegate) {
     };
 }
 
-
-
-
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         if (cordova.platformId === 'ios' && window.cordova && window.cordova.plugins.Keyboard) {
