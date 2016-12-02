@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'ngPDFViewer'])
+var app = angular.module('starter', ['ionic'])
 
 function ContentController($scope, $ionicSideMenuDelegate) {
     $scope.toggleLeft = function () {
@@ -28,7 +28,6 @@ app.run(function ($ionicPlatform) {
         }
     });
 })
-
 
 app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -66,6 +65,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'loyolaChat-tab': {
                 templateUrl: 'templates/loyolaChat.html'
+            }
+        }
+    })
+
+    .state('app.loyolaguide', {
+        url: '/loyolaguide',
+        views: {
+            'loyolaguide-tab': {
+                templateUrl: 'templates/loyolaguide.html'
             }
         }
     })
@@ -126,11 +134,29 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
+    .state('app.psummary', {
+        url: '/psummary',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/psummary.html'
+            }
+        }
+    })
+
     .state('app.settings', {
         url: '/settings',
         views: {
             'main-tab': {
                 templateUrl: 'templates/settings.html'
+            }
+        }
+    })
+
+    .state('app.appinfo', {
+        url: '/appinfo',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/appinfo.html'
             }
         }
     })
@@ -176,6 +202,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'main-tab': {
                 templateUrl: 'templates/tasks.html'
+            }
+        }
+    })
+
+    .state('app.handbook', {
+        url: '/handbook',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/handbook.html'
             }
         }
     })

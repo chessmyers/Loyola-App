@@ -118,3 +118,9 @@ i {
     padding: 10px;
     font-style:italic;
 }
+
+.note {
+    font-size:10px;
+    font-family:Arial;
+    font-style:italic;
+}

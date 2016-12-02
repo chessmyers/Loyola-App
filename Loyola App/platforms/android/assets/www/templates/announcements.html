@@ -1,5 +1,7 @@
 ﻿<ion-view view-title="Daily Announcements">
     <ion-content>
-        <iframe src="https://loyolahs.instructure.com/courses/354/files/98306/download" width="100%" height="100%" frameborder="0" scrolling="auto"></iframe> 
+        <div class="wrapper">
+            <ng-pdf template-url="templates/viewer.html" canvasid="pdf" scale="page-fit" page=2></ng-pdf>
+        </div> 
     </ion-content>
 </ion-view>

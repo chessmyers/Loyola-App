@@ -1,26 +1,22 @@
 ﻿app.controller('MainController', ['$scope', function ($scope) {
 
-    var storage = window.localStorage;
+    $scope.title = 'This is a test string!';
+    $scope.likes = 0;
 
-    var lin = storage.getItem("link");
-    if (lin != null) {
-        if (lin == "_blank") {
-            $scope.linkloc = '_blank';
-            $scope.loctext = "In-App Browser";
-        }
-        else {
-            $scope.linkloc = '_system';
-            $scope.loctext = "System Browser"
-        }
-    }
-    else {
-        $scope.linkloc = '_blank';
-        $scope.loctext = "In-App Browser"
-    }
+    $scope.plus = function () {
+        $scope.likes += 1;
+    };
 
-    $scope.ale = function () {
-        alert("HEEY")
-    }
+    $scope.item1 = "Mario";
+    $scope.item2 = "Luigi";
+    $scope.item3 = "Peach";
+    $scope.show = true;
+
+    $scope.val1 = 0;
+    $scope.val2 = 0;
+    $scope.val3 = 0;
+    $scope.val4 = 0;
+    $scope.val5 = 0;
 
     $scope.resizeFrame = function ($scope) {
         var h = window.screen.height;
@@ -122,18 +118,18 @@
     };
 
     $scope.website = function () {
-        var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', $scope.linkloc, 'location=yes');
+        var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
     };
 
     $scope.opencanvas = function () {
-        var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', $scope.linkloc, 'location=yes');
+        var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
 
     };
 
     $scope.openq = function () {
-        var ref = cordova.InAppBrowser.open('http://sc.loyolahs.edu/', $scope.linkloc, 'location=yes');
+        var ref = cordova.InAppBrowser.open('http://sc.loyolahs.edu/', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
     }
 
@@ -152,22 +148,6 @@
     $scope.openann = function () {
         var ref = cordova.InAppBrowser.open('http://rlmf.org/Documents/Fingering%20Charts/tubachart.PDF', '_blank', 'location=yes');
     }
-
-
-    $scope.changeLink = function (n) {
-        if (n == 1) {
-            $scope.linkloc = "_system";
-            $scope.loctext = "System Browser";
-            storage.setItem("link", '_system');
-        }
-        else {
-            $scope.linkloc = "_blank";
-            $scope.loctext = "In-App Browser";
-            storage.setItem("link", '_blank');
-        }
-    }
-
-
 
     $scope.data = {
         showDelete: false
@@ -202,141 +182,17 @@
 
     $scope.items = ["Sample: Do Homework!", "Sample: Community Service!"]
 
-    //var storage = window.localStorage;
-    //var value = storage.getItem(key);  Pass a key name to get its value.
-    //storage.setItem(key, value)  Pass a key name and its value to add or update that key.
-    //storage.removeItem(key)  Pass a key name to remove that key from storage.
 
 
 
-    if (storage.getItem("tab") != null) {
-        $scope.tabcol = storage.getItem("tab");
-    }
-    else
-    {
-        $scope.tabcol = "tabs-positive";
-    }
-    $scope.changeBar = function (bar) {
-        var storage = window.localStorage;
-        switch (bar) {
-            case "dark": $scope.tabcol = "tabs-dark";
-                storage.setItem("tab", "tabs-dark");
-                break;
-            case "light": $scope.tabcol = "tabs-stable";
-                storage.setItem("tab", "tabs-stable");
-                break;
-            case "blue": $scope.tabcol = "tabs-positive";
-                storage.setItem("tab", "tabs-positive");
-                break;
-            case "cyan": $scope.tabcol = "tabs-calm";
-                storage.setItem("tab", "tabs-calm");
-                break;
-            case "green": $scope.tabcol = "tabs-balanced";
-                storage.setItem("tab", "tabs-balanced");
-                break;
-            case "purple": $scope.tabcol = "tabs-royal";
-                storage.setItem("tab", "tabs-royal");
-                break;
-            case "yellow": $scope.tabcol = "tabs-energized";
-                storage.setItem("tab", "tabs-energized");
-                break;
-            case "red": $scope.tabcol = "tabs-assertive";
-                storage.setItem("tab", "tabs-assertive");
-                break;
-            default:
-                $scope.tabcol = "tabs-positive";
-        }
-    }
-
-    if (storage.getItem("fname") != null) {
-        $scope.fname = storage.getItem("fname");
-    }
-    else {
-        $scope.fname = "";
-    }
-    if (storage.getItem("lname") != null) {
-        $scope.lname = storage.getItem("lname");
-    }
-    else {
-        $scope.lname = "";
-    }
-    if (storage.getItem("email") != null) {
-        $scope.email = storage.getItem("email");
-    }
-    else {
-        $scope.email = "";
-    }
-    if (storage.getItem("pass") != null) {
-        $scope.pass = storage.getItem("pass");
-    }
-    else {
-        $scope.pass = "";
-    }
-    $scope.pInfoSave = function () {
-        var fn = document.getElementById("fname").value;
-        var ln = document.getElementById("lname").value;
-        var em = document.getElementById("email").value;
-        var pass = document.getElementById("pass").value;
-        storage.setItem("fname", fn);
-        storage.setItem("lname", ln);
-        storage.setItem("email", em);
-        storage.setItem("pass", pass);
-        storage.setItem("grade", $scope.grade)
-        $scope.fname = fn;
-        $scope.lname = ln;
-        $scope.email = em;
-        $scope.pass = pass;
-   
-    }
-
-    if (storage.getItem("grade") != null) {
-        $scope.grade = storage.getItem("grade");
-    }
-    else {
-        $scope.grade = "Not a Student";
-    }
-
-    $scope.changeGrade = function (n) {
-        switch (n) {
-            case 9: $scope.grade = "9th Grader";
-                break;
-            case 10: $scope.grade = "10th Grader";
-                break;
-            case 11: $scope.grade = "11th Grader";
-                break;
-            case 12: $scope.grade = "12th Grader";
-                break;
-            case 0: $scope.grade = "Not a Student";
-                break;
-        }
-    }
+    $scope.ale = function() {
+    alert("Hey!");
+};
 
 
-
-/*
-
- $scope.pdfName = 'Relativity: The Special and General Theory by Albert Einstein';
-  $scope.hbURL = 'scripts/relativity.pdf';
-  $scope.scroll = 0;
-  $scope.loading = 'loading';
-
-  $scope.getNavStyle = function(scroll) {
-    if(scroll > 100) return 'pdf-controls fixed';
-    else return 'pdf-controls';
-  }
-
-  $scope.onError = function(error) {
-    console.log(error);
-  }
-
-  $scope.onLoad = function() {
-    $scope.loading = '';
-  }
-
-  $scope.onProgress = function (progressData) {
-    console.log(progressData);
-  };
+ 
 
 
-  */
 }]);
+
+

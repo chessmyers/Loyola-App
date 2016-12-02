@@ -1,0 +1,67 @@
+﻿<ion-view view-title="Profile">
+    <ion-content>
+
+        <div class="item item-divider">
+            <a class="item item-icon-right" href="#/app/psummary">
+                <i class="icon ion-information"></i>
+                Personal Summary
+            </a>
+        </div>
+
+        <h4 class="note">Note: This information can be used for your future reference and to personalize the app to your needs</h4>
+
+        <div class="list">
+            <ion-list type="card">
+
+                <div class="item item-divider item-royal profdiv">
+                    Personal Info
+                </div>
+
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="First Name">
+                    <i class="icon ion-person"></i>
+                </label>
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" placeholder="Last Name">
+                    <i class="icon ion-person"></i>
+                </label>
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="Email">
+                    <i class="icon ion-email"></i>
+                </label>
+
+                <div class="item item-divider item-balanced profdiv">
+                    School Status
+                </div>
+
+                <ion-list>
+                    <ion-radio ng-value="'9'" selected>9th Grade</ion-radio>
+                    <ion-radio ng-value="'10'">10th Grade</ion-radio>
+                    <ion-radio ng-value="'11'">11th Grade</ion-radio>
+                    <ion-radio ng-value="'12'">12th Grade</ion-radio>
+                    <ion-radio ng-value="'0'">Not A Student</ion-radio>
+                </ion-list>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        GPA
+                    </div>
+                    <select>
+                        <option selected>A- ~ A+</option>
+                        <option>B- ~ B+</option>
+                        <option>C- ~ C+</option>
+                        <option>D- ~ D+</option>
+                        <option>~F</option>
+                    </select>
+                </label>
+
+            </ion-list>
+        </div>
+
+        <button class="button button-block button-calm">
+            Save Info
+        </button>
+    </ion-content>
+</ion-view>

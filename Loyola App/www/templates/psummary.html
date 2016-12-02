@@ -1,0 +1,65 @@
+﻿<ion-view view-title="Edit Personal Info">
+    <ion-content>
+        
+        <div class="list">
+            <ion-list type="card">
+
+                <div class="item item-divider item-royal profdiv">
+                    Personal Info
+                </div>
+
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="First Name" id="fname" value={{fname}}>
+                    <i class="icon ion-person"></i>
+                </label>
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" placeholder="Last Name" id="lname" value={{lname}}>
+                    <i class="icon ion-person"></i>
+                </label>
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="Email" id="email" value={{email}}>
+                    <i class="icon ion-email"></i>
+                </label>
+                <label class="item item-input item-floating-label item-icon-right">
+                    <span class="input-label">Password</span>
+                    <input type="text" placeholder="Password" id="pass" value={{pass}}>
+                    <i class="icon ion-locked"></i>
+                </label>
+
+                <div class="item item-divider item-balanced profdiv">
+                    School Status
+                </div>
+
+                <ion-list>
+                    <ion-radio ng-value=9 ng-click="changeGrade(9)" selected>9th Grade</ion-radio>
+                    <ion-radio ng-value=10 ng-click="changeGrade(10)">10th Grade</ion-radio>
+                    <ion-radio ng-value=11 ng-click="changeGrade(11)">11th Grade</ion-radio>
+                    <ion-radio ng-value=12 ng-click="changeGrade(12)">12th Grade</ion-radio>
+                    <ion-radio ng-value=0 ng-click="changeGrade(0)">Not A Student</ion-radio>
+                </ion-list>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        GPA
+                    </div>
+                    <select id="grade">
+                        <option selected>A- ~ A+</option>
+                        <option>B- ~ B+</option>
+                        <option>C- ~ C+</option>
+                        <option>D- ~ D+</option>
+                        <option>~F</option>
+                    </select>
+                </label>
+
+            </ion-list>
+        </div>
+
+        <button class="button button-block button-calm" ng-click="pInfoSave()">
+            Save Info
+        </button>
+
+
+    </ion-content>
+</ion-view>

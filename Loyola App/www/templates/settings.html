@@ -1,6 +1,40 @@
 ﻿<ion-view view-title="Settings">
-    <ion-content ng-init="createFile()">
-        <h1>Settings</h1>
-        
+    <ion-content>
+
+        <div class="list">
+            <ion-list type="card">
+                <ion-item>
+                    <div class="item item-divider item-light profdiv">
+                        Bar Color
+                    </div>
+
+                    <div class="button-bar">
+                        <a class="button button-positive" ng-click="changeBar('blue')"></a>
+                        <a class="button button-dark" ng-click="changeBar('dark')"></a>
+                        <a class="button button-stable" ng-click="changeBar('light')"></a>
+                    </div>
+                    <div class="button-bar">
+                        <a class="button button-balanced" ng-click="changeBar('green')"></a>
+                        <a class="button button-energized" ng-click="changeBar('yellow')"></a>
+                        <a class="button button-assertive" ng-click="changeBar('red')"></a>
+                    </div>
+                    <div class="button-bar">
+                        <a class="button button-royal" ng-click="changeBar('purple')"></a>
+                        <a class="button button-calm" ng-click="changeBar('cyan')"></a>
+                    </div>
+                </ion-item>
+                <ion-item>
+                    <div class="item item-divider item-light profdiv">
+                        Open Link Location
+                    </div>
+                    <div class="button-bar">
+                        <a class="button button-stable" ng-click="changeLink(0)">In-App</a>
+                        <a class="button button-dark" ng-click="changeLink(1)">System</a>
+                    </div>
+                    <h3>{{loctext}}</h3>
+
+                </ion-item>
+            </ion-list>
+        </div>
     </ion-content>
 </ion-view>
