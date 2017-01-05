@@ -1,0 +1,82 @@
+﻿<ion-view view-title="Cub News">
+    <ion-content has-tabs>
+        <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light" style="margin-top:-50px;">
+            <div class="tabs">
+                <a class="tab-item" href="#/app/loyalist">
+                    News Feed
+                </a>
+                <a class="tab-item active" href="#">
+                    Loyalist
+                </a>
+            </div>
+        </div>
+
+        <ion-side-menus>
+
+            <ion-side-menu-content ng-init="setNews()">
+                <ion-header-bar class="bar-balanced" style="margin-top:93px">
+                    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+                    <div class="h1 title">{{ newsTitle }}</div>
+                </ion-header-bar>
+                <ion-content class="adjust">
+                <ion-list>
+                    <ion-item ng-repeat="item in newsSrc" item="item" href="#" ng-click="openNews(item.URL)" class="item-thumbnail-left item-text-wrap">
+                       <img src="{{item.Pic}}" /> 
+                        
+                        {{ item.Title }}
+                            
+                        <h3>By {{ item.Author }}</h3>
+                        
+                    </ion-item>
+                </ion-list>
+                </ion-content>
+
+            </ion-side-menu-content>
+
+            <ion-side-menu side="left">
+                <ion-content class="adjust2">
+
+                    <div class="list">
+
+                        <div class="item item-divider">
+                        </div>
+
+                        <a class="item item-icon-left" href="#" menu-close>
+                            <i class="icon ion-close"></i>
+                            Close
+                        </a>
+
+                        <div class="item item-divider">
+                        </div>
+                        
+                        <a class="item item-icon-left" href="#" ng-click="switchNews('N')" menu-close>
+                            <i class="icon ion-ios-circle-filled" ng-show="showDot0"></i>
+                            News
+                        </a>
+                        <a class="item item-icon-left" href="#" ng-click="switchNews('A')" menu-close>
+                            <i class="icon ion-ios-circle-filled" ng-show="showDot1"></i>
+                            A &amp; E
+                        </a>
+                        <a class="item item-icon-left" href="#" ng-click="switchNews('O')" menu-close>
+                            <i class="icon ion-ios-circle-filled" ng-show="showDot2"></i>
+                            Opinion
+                        </a>
+                        <a class="item item-icon-left" href="#" ng-click="switchNews('F')" menu-close>
+                            <i class="icon ion-ios-circle-filled" ng-show="showDot3"></i>
+                            Feature
+                        </a>
+                        <a class="item item-icon-left" href="#" ng-click="switchNews('S')" menu-close>
+                            <i class="icon ion-ios-circle-filled" ng-show="showDot4"></i>
+                            Sports
+                        </a>
+
+                    </div>
+
+                </ion-content>
+            </ion-side-menu>
+
+
+        </ion-side-menus>
+
+    </ion-content>
+</ion-view>

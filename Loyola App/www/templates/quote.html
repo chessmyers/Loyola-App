@@ -1,0 +1,26 @@
+﻿<ion-view view-title="Quote of the Day">
+    <ion-content>
+
+        <div class="card" ng-init="dispquote()" style="margin-top:50%;">
+            <div class="item item-text-wrap">
+               <div id="datet">  </div>
+                <br />
+                <p>
+                    <span id="qtext" style="font-size:120%;"> </span>
+                    <br />
+                    <i id="qauthor"> </i>
+                </p>
+
+            </div>
+        </div>
+
+        
+        <div class="button-bar" style="position:absolute">
+            <button class="button icon ion-chevron-left" style="border: 1px solid lightgray" ng-click="changeQuote(0)"></button>
+            <button class="button icon ion-refresh" style="border: 1px solid lightgray" ng-click="changeQuote(1)"></button>
+            <button class="button icon ion-chevron-right" style="border: 1px solid lightgray" ng-click="changeQuote(2)"></button>
+        </div>
+        
+
+    </ion-content>
+</ion-view>

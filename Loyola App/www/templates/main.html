@@ -10,11 +10,11 @@
                 
                 <div class="list card padding" > 
                     
-                    <a class="button button-block button-royal padding" href="#/app/announcements">
+                    <a class="button button-block button-royal padding" href="" ng-click="openann()">
                         Daily Announcements
                     </a>
-                    <a class="button button-block button-dark padding" href="#/app/qportal">
-                        Calandar
+                    <a class="button button-block button-dark padding" href="#/app/calendar">
+                        Calendar
                     </a>
                     <a class="button button-block button-energized padding" href="#/app/bells">
                         Bell Schedule
@@ -26,7 +26,7 @@
                         QPortal
                     </a>
                     <a class="button button-block button-balanced padding" href="#/app/gpa">
-                        Loyola GPA Calculator
+                        GPA Calculator
                     </a>
                     <a class="button button-block button-salmon padding" href="#/app/tasks">
                         Task Manager
@@ -55,24 +55,24 @@
                             <h4>Call</h4>
                         </div>
 
+                        <div class="linkdiv" ng-click="naviance()">
+                            <a class="button icon ion-ios-star button-balanced links" style="background-color:lightsalmon;"></a>
+                            <h4>Naviance</h4>
+                        </div>
+
+                        <div class="linkdiv" ng-click="cubcash()">
+                            <button class="button icon ion-social-usd button-royal links"></button>
+                            <h4>Cub Cash</h4>
+                        </div>
+
                         <div class="linkdiv">
                             <a class="button icon ion-ios-navigate-outline button-balanced links" href="" style="background-color:yellowgreen" ng-click="openmap()"></a>
                             <h4>Directions</h4>
                         </div>
 
-                        <div class="linkdiv">
-                            <a class="button icon ion-cloud button-balanced links" href="#/app/weather" style="background-color:lightsalmon;"></a>
-                            <h4>Weather</h4>
-                        </div>
-
                         <div class="linkdiv" ng-click="youtube()">
                             <button class="button icon ion-social-youtube button-assertive links"></button>
                             <h4>Youtube</h4>
-                        </div>
-
-                        <div class="linkdiv" ng-click="flickr()">
-                            <button class="button icon ion-images button-royal links"></button>
-                            <h4>Flickr</h4>
                         </div>
 
                         <div class="linkdiv" ng-click="instagram()">
@@ -98,7 +98,7 @@
                 </ion-content>
             </ion-side-menu>
 
-        <!-- Left Menu  -->
+        <!-- Left Menu 
             <ion-side-menu side="left">
                 <ion-header-bar class="bar-royal">
                     <h1 class="title">Account</h1>
@@ -137,6 +137,7 @@
                     </ion-list>
                 </ion-content>
             </ion-side-menu>
+             -->
 
         </ion-side-menus>
 

@@ -1,4 +1,4 @@
-﻿app.controller('MainController', ['$scope', function ($scope) {
+﻿app.controller('MainController', ['$scope', '$http', function ($scope, $http) {
 
     var storage = window.localStorage;
 
@@ -18,9 +18,20 @@
         $scope.loctext = "In-App Browser"
     }
 
-    $scope.ale = function () {
-        alert("HEEY")
+    $scope.changeLink = function (n) {
+        if (n == 1) {
+            $scope.linkloc = "_system";
+            $scope.loctext = "System Browser";
+            storage.setItem("link", '_system');
+        }
+        else {
+            $scope.linkloc = "_blank";
+            $scope.loctext = "In-App Browser";
+            storage.setItem("link", '_blank');
+        }
     }
+
+    $scope.calwidth = window.screen.height;
 
     $scope.resizeFrame = function ($scope) {
         var h = window.screen.height;
@@ -48,14 +59,22 @@
         }
 
         finalGrade = 0;
-
+        var t = 0;
         for (var k = 1; k <= 7; k++) {
+            if (grade[k] != 0) {
             finalGrade += grade[k];
             finalGrade += level[k];
-        }
+            t++;
+            }
+         }
 
-        finalGrade = finalGrade / 7;
+
+
+        finalGrade = finalGrade / t;
         finalGrade = finalGrade.toFixed(2);
+        if (isNaN(finalGrade)) {
+            finalGrade = "Please Enter a Grade"
+        }
 
         document.getElementById("disp").innerText = finalGrade;
         //(grade[1] + grade[2] + grade[3] + grade[4] + grade[5] + grade[6] + grade[7]) / 7;
@@ -100,78 +119,79 @@
 
     };
 
-    $scope.twitter = function () {
-        var ref = cordova.InAppBrowser.open('https://twitter.com/LoyolaHS', '_system', 'location=yes');
-    };
+                $scope.twitter = function () {
+                    var ref = cordova.InAppBrowser.open('https://twitter.com/LoyolaHS', '_system', 'location=yes');
+                };
 
-    $scope.instagram = function () {
-        var ref = cordova.InAppBrowser.open('https://www.instagram.com/loyolahigh/', '_blank', 'location=yes');
-        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
-    };
+                $scope.instagram = function () {
+                    var ref = cordova.InAppBrowser.open('https://www.instagram.com/loyolahigh/', '_blank', 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                };
 
-    $scope.flickr = function () {
-        window.open("https://www.google.com");
-    };
+                $scope.cubcash = function () {
+                    var ref = cordova.InAppBrowser.open('https://loyolahs.campuscardcenter.com/ch/login.html', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                };
 
-    $scope.youtube = function () {
-        var ref = cordova.InAppBrowser.open('https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined', '_system', 'location=yes');
-    };
+                $scope.naviance = function () {
+                    var ref = cordova.InAppBrowser.open('https://connection.naviance.com/family-connection/auth/login/?hsid=loyolahs', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                };
 
-    $scope.facebook = function () {
-        var ref = cordova.InAppBrowser.open('https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203', '_system', 'location=yes');
-    };
+                $scope.youtube = function () {
+                    var ref = cordova.InAppBrowser.open('https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined', '_system', 'location=yes');
+                };
 
-    $scope.website = function () {
-        var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', $scope.linkloc, 'location=yes');
-        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
-    };
+                $scope.facebook = function () {
+                    var ref = cordova.InAppBrowser.open('https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203', '_system', 'location=yes');
+                };
 
-    $scope.opencanvas = function () {
-        var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', $scope.linkloc, 'location=yes');
-        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                $scope.website = function () {
+                    var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                };
 
-    };
+                $scope.opencanvas = function () {
+                    var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                };
 
-    $scope.openq = function () {
-        var ref = cordova.InAppBrowser.open('http://sc.loyolahs.edu/', $scope.linkloc, 'location=yes');
-        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
-    }
+                $scope.openq = function () {
+                    var ref = cordova.InAppBrowser.open('http://sc.loyolahs.edu/', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                };
 
-    $scope.dialcall = function () {
-        window.open('tel:2133815121', '_system');
-    };
+                $scope.dialcall = function () {
+                    window.open('tel:2133815121', '_system');
+                };
 
-    $scope.sendmail = function () {
-        var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
-    };
+                $scope.sendmail = function () {
+                    var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
+                };
 
-    $scope.openmap = function () {
-        var ref = cordova.InAppBrowser.open('http://maps.google.com/maps?daddr=Loyola+High+School', '_system', 'location=yes');
-    };
+                $scope.openmap = function () {
+                    var ref = cordova.InAppBrowser.open('http://maps.google.com/maps?daddr=Loyola+High+School', '_system', 'location=yes');
+                };
 
-    $scope.openann = function () {
-        var ref = cordova.InAppBrowser.open('http://rlmf.org/Documents/Fingering%20Charts/tubachart.PDF', '_blank', 'location=yes');
-    }
+                $scope.openann = function () {
+                    var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/courses/354/', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("Cannot load announcements :("); });
+                };
 
-
-    $scope.changeLink = function (n) {
-        if (n == 1) {
-            $scope.linkloc = "_system";
-            $scope.loctext = "System Browser";
-            storage.setItem("link", '_system');
-        }
-        else {
-            $scope.linkloc = "_blank";
-            $scope.loctext = "In-App Browser";
-            storage.setItem("link", '_blank');
-        }
-    }
+                $scope.openHandbook = function () {
+                    var ref = cordova.InAppBrowser.open('https://drive.google.com/open?id=0Bw41Zks9I_f_cWFXZ3J3dDczajQ', $scope.linkloc, 'location=yes');
+                    ref.addEventListener('loaderror', function (event) { alert("Cannot open handbook. Sorry."); });
+                };
+    
 
 
+    
 
     $scope.data = {
         showDelete: false
     };
+
+
 
     $scope.edit = function (item) {
         var ind = $scope.items.indexOf(item);
@@ -179,6 +199,7 @@
         if (prom != null && prom != "") {
             $scope.items[ind] = prom;
         }
+        $scope.saveItemData()
     };
     $scope.share = function (item) {
         alert('Share Item: ');
@@ -187,10 +208,12 @@
     $scope.moveItem = function (item, fromIndex, toIndex) {
         $scope.items.splice(fromIndex, 1);
         $scope.items.splice(toIndex, 0, item);
+        $scope.saveItemData()
     };
 
     $scope.onItemDelete = function (item) {
         $scope.items.splice($scope.items.indexOf(item), 1);
+        $scope.saveItemData();
     };
 
     $scope.addItem = function () {
@@ -198,10 +221,45 @@
         if (pr != null && pr != "") {
             $scope.items.push(pr);
         }
+        $scope.saveItemData()
     };
 
-    $scope.items = ["Sample: Do Homework!", "Sample: Community Service!"]
+    $scope.saveItemData = function () {
+        var n = 0;
+        var i = $scope.items[n];
+        while (i != undefined) {
+            storage.setItem("item" + n.toString(), $scope.items[n]);
+            n += 1;
+            i = $scope.items[n];
+        }
+     //   alert($scope.items + "\n" + storage.getItem("item0") + "\n" + $scope.items[0] + "\n" + $scope.items[1] + "\n" + storage.getItem("item1") + " " + storage.getItem("item2"));
+    }
 
+    $scope.loadItemData = function () {
+        $scope.items = [];
+        if (storage.getItem("item0") == null) {
+            $scope.items = ["Sample: Do Homework!", "Sample: Community Service!"]
+        }
+        else {
+            var n = 0;
+            var i = storage.getItem("item0");
+            while (i != null) {
+                $scope.items.push(i);
+                n += 1;
+                i = storage.getItem("item" + n.toString());
+            }
+        }
+    };
+
+    $scope.delItems = function () {
+        for (var i = 0; i < 100; i++) {
+            storage.removeItem("item" + i.toString());
+        }
+    }
+    
+
+ //  $scope.delItems();
+   
     //var storage = window.localStorage;
     //var value = storage.getItem(key);  Pass a key name to get its value.
     //storage.setItem(key, value)  Pass a key name and its value to add or update that key.
@@ -311,6 +369,175 @@
         }
     }
 
+    $scope.quoteplus = 0;
+
+    $scope.dispquote = function () {
+        var d = new Date();
+        var wday = d.getDay();
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        wday = days[wday];
+
+        var month = d.getMonth();
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        month = months[month];
+        
+        var day = d.getDate();
+        var year = d.getFullYear();
+        var datestring = wday + ", " + month + " " + day + ", " + year;
+        document.getElementById("datet").innerText = datestring;
+        var monthdays = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+        var cdate = monthdays[d.getMonth()] + day;
+        cdate += $scope.quoteplus-1;
+        if (cdate < 0) {
+            cdate += 365;
+        }
+        if (cdate > 365) {
+            cdate -= 365;
+        }
+        // February, April, June, September, November
+
+        $http.get('templates/quotelist.php')
+    .then(function (response) {
+        //First function handles success
+        var qData = response.data.Quotes;
+        document.getElementById("qtext").innerText = qData[cdate].Text;
+        document.getElementById("qauthor").innerText = "-" + qData[cdate].Author;
+    }, function (response) {
+        //Second function handles error
+        document.getElementById("qtext").innerText = "Unable to load quotes :(";
+        document.getElementById("qauthor").innerText = "";
+    });
+    }
+
+    $scope.changeQuote = function (n) {
+        switch (n) {
+            case 0:
+                $scope.quoteplus -= 1;
+                $scope.dispquote();
+                break;
+            case 1:
+                $scope.quoteplus = 0;
+                $scope.dispquote();
+                break;
+            case 2:
+                $scope.quoteplus += 1;
+                $scope.dispquote();
+                break;
+        }
+    }
+
+
+    $scope.loadNews = function () {
+        $http.get('http://rilsoftwarewin8.com/newspaper/newslist.php')
+    .then(function (response) {
+        //Success
+        $scope.newsHome = response.data.Home;
+        $scope.newsNews = response.data.News;
+        $scope.newsAE = response.data.AE;
+        $scope.newsOpinion = response.data.Opinion;
+        $scope.newsFeature = response.data.Feature;
+        $scope.newsSports = response.data.Sports;
+    }, function (response) {
+        //Failure
+        alert("Could not fetch news articles :( \n Please reload app and try again");
+    });
+       
+    }
+
+    $scope.openNews = function (address) {
+        var ref = cordova.InAppBrowser.open(address, '_blank', 'location=yes');
+        ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+    }
+
+    $scope.newsTitle = "News";
+    $scope.showDot0 = true;
+    $scope.showDot1 = false;
+    $scope.showDot2 = false;
+    $scope.showDot3 = false;
+    $scope.showDot4 = false;
+
+    $scope.switchNews = function (n) {
+        switch (n) {
+            case "N":
+                $scope.showDot0 = true;
+                $scope.showDot1 = false;
+                $scope.showDot2 = false;
+                $scope.showDot3 = false;
+                $scope.showDot4 = false;
+                $scope.newsTitle = "News";
+                $scope.newsSrc = $scope.newsNews;
+                break;
+            case "A":
+                $scope.showDot1 = true;
+                $scope.showDot0 = false;
+                $scope.showDot2 = false;
+                $scope.showDot3 = false;
+                $scope.showDot4 = false;
+                $scope.newsTitle = "A & E";
+                $scope.newsSrc = $scope.newsAE;
+                break;
+            case "O":
+                $scope.showDot2 = true;
+                $scope.showDot0 = false;
+                $scope.showDot1 = false;
+                $scope.showDot3 = false;
+                $scope.showDot4 = false;
+                $scope.newsTitle = "Opinion";
+                $scope.newsSrc = $scope.newsOpinion;
+                break;
+            case "F":
+                $scope.showDot3 = true;
+                $scope.showDot2 = false;
+                $scope.showDot0 = false;
+                $scope.showDot1 = false;
+                $scope.showDot4 = false;
+                $scope.newsTitle = "Feature";
+                $scope.newsSrc = $scope.newsFeature;
+                break;
+            case "S":
+                $scope.showDot4 = true;
+                $scope.showDot2 = false;
+                $scope.showDot0 = false;
+                $scope.showDot1 = false;
+                $scope.showDot3 = false;
+                $scope.newsTitle = "Sports";
+                $scope.newsSrc = $scope.newsSports;
+                break;
+        }
+    }
+
+    $scope.setNews = function () {
+        $scope.newsSrc = $scope.newsNews;
+        $scope.newsTitle = "News";
+        $scope.showDot0 = true;
+        $scope.showDot1 = false;
+        $scope.showDot2 = false;
+        $scope.showDot3 = false;
+        $scope.showDot4 = false;
+    }
+
+
+    $scope.resetData = function () {
+        if (confirm("Are you sure you want to reset everything?")) {
+            $scope.linkloc = '_blank';
+            $scope.loctext = "In-App Browser"
+            storage.setItem("link", "_blank");
+            $scope.delItems();
+            $scope.tabcol = "tabs-positive";
+            storage.setItem("tab", "tabs-positive");
+            storage.setItem("fname", null);
+            storage.setItem("lname", null);
+            storage.setItem("email", null);
+            storage.setItem("pass", null);
+            storage.setItem("grade", null)
+            $scope.fname = "";
+            $scope.lname = "";
+            $scope.email = "";
+            $scope.pass = "";
+            $scope.grade = "Not a Student";
+            alert("Restart app to see all changes take effect.");
+        }
+    }
 
 
 /*
