@@ -3,16 +3,13 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'ngPDFViewer'])
+var app = angular.module('starter', ['ionic'])
 
 function ContentController($scope, $ionicSideMenuDelegate) {
     $scope.toggleLeft = function () {
         $ionicSideMenuDelegate.toggleLeft();
     };
 }
-
-
-
 
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -31,7 +28,6 @@ app.run(function ($ionicPlatform) {
         }
     });
 })
-
 
 app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -64,6 +60,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
+    .state('app.newspaper', {
+        url: '/newspaper',
+        views: {
+            'loyalist-tab': {
+                templateUrl: 'templates/newspaper.html'
+            }
+        }
+    })
+
     .state('app.loyolaChat', {
         url: '/loyolaChat',
         views: {
@@ -73,13 +78,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
-    
-
-    .state('app.gpa', {
-        url: '/gpa',
+    .state('app.loyolaguide', {
+        url: '/loyolaguide',
         views: {
-            'main-tab': {
-                templateUrl: 'templates/gpa.html'
+            'loyolaguide-tab': {
+                templateUrl: 'templates/loyolaguide.html'
             }
         }
     })
@@ -87,8 +90,99 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     .state('app.map', {
         url: '/map',
         views: {
-            'main-tab': {
+            'loyolaguide-tab': {
                 templateUrl: 'templates/map.html'
+            }
+        }
+    })
+
+    .state('app.staffdir', {
+        url: '/staffdir',
+        views: {
+            'loyolaguide-tab': {
+                templateUrl: 'templates/staffdir.html'
+            }
+        }
+    })
+
+    .state('app.quote', {
+        url: '/quote',
+        views: {
+            'loyolaguide-tab': {
+                templateUrl: 'templates/quote.html'
+            }
+        }
+    })
+
+    .state('app.aboutschool', {
+        url: '/aboutschool',
+        views: {
+            'loyolaguide-tab': {
+                templateUrl: 'templates/aboutschool.html'
+            }
+        }
+    })
+
+    .state('app.optionspage', {
+        url: '/optionspage',
+        views: {
+            'optionspage-tab': {
+                templateUrl: 'templates/optionspage.html'
+            }
+        }
+    })
+
+
+    .state('app.profile', {
+        url: '/profile',
+        views: {
+            'optionspage-tab': {
+                templateUrl: 'templates/profile.html'
+            }
+        }
+    })
+
+    .state('app.psummary', {
+        url: '/psummary',
+        views: {
+            'optionspage-tab': {
+                templateUrl: 'templates/psummary.html'
+            }
+        }
+    })
+
+    .state('app.settings', {
+        url: '/settings',
+        views: {
+            'optionspage-tab': {
+                templateUrl: 'templates/settings.html'
+            }
+        }
+    })
+    
+    .state('app.legal', {
+        url: '/legal',
+        views: {
+            'optionspage-tab': {
+                templateUrl: 'templates/legal.html'
+            }
+        }
+    })
+
+    .state('app.appinfo', {
+        url: '/appinfo',
+        views: {
+            'optionspage-tab': {
+                templateUrl: 'templates/appinfo.html'
+            }
+        }
+    })
+
+    .state('app.gpa', {
+        url: '/gpa',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/gpa.html'
             }
         }
     })
@@ -111,33 +205,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
-    .state('app.testing', {
-        url: '/testing',
-        views: {
-            'main-tab': {
-                templateUrl: 'templates/testing.html'
-            }
-        }
-    })
-
-    .state('app.profile', {
-        url: '/profile',
-        views: {
-            'main-tab': {
-                templateUrl: 'templates/profile.html'
-            }
-        }
-    })
-
-    .state('app.settings', {
-        url: '/settings',
-        views: {
-            'main-tab': {
-                templateUrl: 'templates/settings.html'
-            }
-        }
-    })
-
     .state('app.announcements', {
         url: '/announcements',
         views: {
@@ -156,20 +223,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
-    .state('app.qportal', {
-        url: '/qportal',
+    .state('app.calendar', {
+        url: '/calendar',
         views: {
             'main-tab': {
-                templateUrl: 'templates/qportal.html'
-            }
-        }
-    })
-
-    .state('app.canvas', {
-        url: '/canvas',
-        views: {
-            'main-tab': {
-                templateUrl: 'templates/canvas.html'
+                templateUrl: 'templates/calendar.html'
             }
         }
     })
@@ -179,6 +237,23 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         views: {
             'main-tab': {
                 templateUrl: 'templates/tasks.html'
+            }
+        }
+    })
+    .state('app.morepage', {
+        url: '/morepage',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/morepage.html'
+            }
+        }
+    })
+
+    .state('app.handbook', {
+        url: '/handbook',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/handbook.html'
             }
         }
     })

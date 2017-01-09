@@ -1,6 +1,24 @@
 ﻿app.controller('MainController', ['$scope', '$http', function ($scope, $http) {
 
-    var storage = window.localStorage;
+    var storage = window.localStorage; 
+
+    $scope.tailorPlatform = function () {
+        var ios = ionic.Platform.isIOS();
+        var android = ionic.Platform.isAndroid();
+        if (ios) {
+            $scope.topbord = 70;
+            $scope.topbord2 = 65;
+            $scope.topbord3 = 113;
+            $scope.topbord4 = 90;
+        }
+        else {
+            $scope.topbord = 50;
+            $scope.topbord2 = 46;
+            $scope.topbord3 = 93;
+            $scope.topbord4 = 93;
+        }
+    }
+    $scope.tailorPlatform();
 
     var lin = storage.getItem("link");
     if (lin != null) {
@@ -32,6 +50,7 @@
     }
 
     $scope.calwidth = window.screen.height;
+    $scope.scrwidth = window.screen.width;
 
     $scope.resizeFrame = function ($scope) {
         var h = window.screen.height;
@@ -211,15 +230,55 @@
         $scope.saveItemData()
     };
 
-    $scope.onItemDelete = function (item) {
+ /*   $scope.onItemDelete = function (item) {
         $scope.items.splice($scope.items.indexOf(item), 1);
         $scope.saveItemData();
-    };
+    };     */
+
+    $scope.deleteAll = function () {
+        if (confirm("Clear All Entries?")) {
+            for (var i = 0; i < 100; i++) {
+                storage.removeItem("item" + i.toString());
+            }
+            $scope.items = [];
+
+        }
+    }
+
+    $scope.isDone = function (item, n) {
+        if (n == 1) {
+            if (item.charAt(item.length - 1) == "1") {
+                return "text-decoration:line-through"
+            }
+        }
+        else {
+            if (item.charAt(item.length - 1) == "1") {
+                return "Not Done"
+            }
+            else {
+                return "Done";
+            }
+        }
+
+        //  "text-decoration:line-through"
+    }
+
+    $scope.setDone = function (item) {
+        if (item.charAt(item.length - 1) == "0") {
+            var ind = $scope.items.indexOf(item);
+            $scope.items[ind] = item.slice(0, -1) + "1";
+        }
+        else {
+            var ind = $scope.items.indexOf(item);
+            $scope.items[ind] = item.slice(0, -1) + "0";
+        }
+        $scope.saveItemData()
+    }
 
     $scope.addItem = function () {
         var pr = prompt("What Task Would You Like to Add?");
         if (pr != null && pr != "") {
-            $scope.items.push(pr);
+            $scope.items.push(pr + "0");
         }
         $scope.saveItemData()
     };
@@ -238,7 +297,7 @@
     $scope.loadItemData = function () {
         $scope.items = [];
         if (storage.getItem("item0") == null) {
-            $scope.items = ["Sample: Do Homework!", "Sample: Community Service!"]
+            $scope.items = ["Sample: Do Homework!0", "Sample: Community Service!0"]
         }
         else {
             var n = 0;
@@ -258,7 +317,7 @@
     }
     
 
- //  $scope.delItems();
+  
    
     //var storage = window.localStorage;
     //var value = storage.getItem(key);  Pass a key name to get its value.
@@ -449,15 +508,21 @@
         ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
     }
 
-    $scope.newsTitle = "News";
+ /*   $scope.newsTitle = "News";
     $scope.showDot0 = true;
     $scope.showDot1 = false;
     $scope.showDot2 = false;
     $scope.showDot3 = false;
-    $scope.showDot4 = false;
+    $scope.showDot4 = false;    */
+
+    $scope.newsbut1 = "button-dark";
+    $scope.newsbut2 = "button-stable";
+    $scope.newsbut3 = "button-stable";
+    $scope.newsbut4 = "button-stable";
+    $scope.newsbut5 = "button-stable";
 
     $scope.switchNews = function (n) {
-        switch (n) {
+  /*      switch (n) {
             case "N":
                 $scope.showDot0 = true;
                 $scope.showDot1 = false;
@@ -503,17 +568,64 @@
                 $scope.newsTitle = "Sports";
                 $scope.newsSrc = $scope.newsSports;
                 break;
+        }  */
+        switch (n) {
+            case "N":
+                $scope.newsbut1 = "button-dark";
+                $scope.newsbut2 = "button-stable";
+                $scope.newsbut3 = "button-stable";
+                $scope.newsbut4 = "button-stable";
+                $scope.newsbut5 = "button-stable";
+                $scope.newsSrc = $scope.newsNews;
+                break;
+            case "A":
+                $scope.newsbut1 = "button-stable";
+                $scope.newsbut2 = "button-dark";
+                $scope.newsbut3 = "button-stable";
+                $scope.newsbut4 = "button-stable";
+                $scope.newsbut5 = "button-stable";
+                $scope.newsSrc = $scope.newsAE;
+                break;
+            case "O":
+                $scope.newsbut1 = "button-stable";
+                $scope.newsbut2 = "button-stable";
+                $scope.newsbut3 = "button-dark";
+                $scope.newsbut4 = "button-stable";
+                $scope.newsbut5 = "button-stable";
+                $scope.newsSrc = $scope.newsOpinion;
+                break;
+            case "F":
+                $scope.newsbut1 = "button-stable";
+                $scope.newsbut2 = "button-stable";
+                $scope.newsbut3 = "button-stable";
+                $scope.newsbut4 = "button-dark";
+                $scope.newsbut5 = "button-stable";
+                $scope.newsSrc = $scope.newsFeature;
+                break;
+            case "S":
+                $scope.newsbut1 = "button-stable";
+                $scope.newsbut2 = "button-stable";
+                $scope.newsbut3 = "button-stable";
+                $scope.newsbut4 = "button-stable";
+                $scope.newsbut5 = "button-dark";
+                $scope.newsSrc = $scope.newsSports;
+                break;
         }
     }
 
     $scope.setNews = function () {
         $scope.newsSrc = $scope.newsNews;
-        $scope.newsTitle = "News";
+     /*   $scope.newsTitle = "News";
         $scope.showDot0 = true;
         $scope.showDot1 = false;
         $scope.showDot2 = false;
         $scope.showDot3 = false;
-        $scope.showDot4 = false;
+        $scope.showDot4 = false;  */
+        $scope.newsbut1 = "button-dark";
+        $scope.newsbut2 = "button-stable";
+        $scope.newsbut3 = "button-stable";
+        $scope.newsbut4 = "button-stable";
+        $scope.newsbut5 = "button-stable";
     }
 
 
@@ -537,33 +649,6 @@
             $scope.grade = "Not a Student";
             alert("Restart app to see all changes take effect.");
         }
-    }
+    }   
 
-
-/*
-
- $scope.pdfName = 'Relativity: The Special and General Theory by Albert Einstein';
-  $scope.hbURL = 'scripts/relativity.pdf';
-  $scope.scroll = 0;
-  $scope.loading = 'loading';
-
-  $scope.getNavStyle = function(scroll) {
-    if(scroll > 100) return 'pdf-controls fixed';
-    else return 'pdf-controls';
-  }
-
-  $scope.onError = function(error) {
-    console.log(error);
-  }
-
-  $scope.onLoad = function() {
-    $scope.loading = '';
-  }
-
-  $scope.onProgress = function (progressData) {
-    console.log(progressData);
-  };
-
-
-  */
 }]);

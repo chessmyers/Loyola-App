@@ -240,6 +240,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         }
     })
+    .state('app.morepage', {
+        url: '/morepage',
+        views: {
+            'main-tab': {
+                templateUrl: 'templates/morepage.html'
+            }
+        }
+    })
 
     .state('app.handbook', {
         url: '/handbook',

@@ -1,21 +1,28 @@
 ﻿<ion-view view-title="Manage Tasks">
-    <ion-content ng-init="loadItemData()">
 
-        <ion-header-bar class="bar-positive">
-            <div class="buttons">
-                <button class="button button-icon icon ion-ios-minus-outline"
-                        ng-click="data.showDelete = !data.showDelete; data.showReorder = false">Delete</button>
-            </div>
-            <h1 class="title"></h1>
-            <div class="buttons">
-                <button class="button button-icon icon ion-drag" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
-                    Reorder
-                </button>
-                <button class="button button-icon icon ion-plus" ng-click="addItem()">
-                    Add
-                </button>
-            </div>
-        </ion-header-bar>
+    <ion-header-bar class="bar-positive" style="margin-top:43px;">
+        <div class="buttons">
+            <!--<button class="button button-icon icon ion-ios-minus-outline"
+                    ng-click="data.showDelete = !data.showDelete; data.showReorder = false">
+                Delete
+            </button>-->
+            <button class="button button-icon icon ion-ios-minus-outline"
+                    ng-click="deleteAll()">
+                Clear
+            </button>
+        </div>
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button button-icon icon ion-drag" ng-click="data.showDelete = false; data.showReorder = !data.showReorder">
+                Reorder
+            </button>
+            <button class="button button-icon icon ion-plus" ng-click="addItem()">
+                Add
+            </button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content ng-init="loadItemData()">
         <br /><br />
 
         <ion-list show-delete="data.showDelete" show-reorder="data.showReorder" type="card">
@@ -23,18 +30,22 @@
             <ion-item ng-repeat="item in items"
                       item="item"
                        class="item-remove-animate">
-                {{ item }}
-                <ion-delete-button class="ion-minus-circled"
+              <span style="{{isDone(item,1)}}"><b>{{ items.indexOf(item)+1 }}.</b> {{item.slice(0,-1)}}</span>
+        <!--        <ion-delete-button class="ion-minus-circled"
                                    ng-click="onItemDelete(item)">
-                </ion-delete-button>
+                </ion-delete-button>  -->
                 <ion-option-button class="button-calm"
                                    ng-click="edit(item)">
                     Edit
                 </ion-option-button>
-                <ion-option-button class="button-assertive"
+                <ion-option-button class="button-energized"
+                                   ng-click="setDone(item)">
+                   {{isDone(item,2)}}
+                </ion-option-button>
+          <!--      <ion-option-button class="button-assertive"
                                    ng-click="onItemDelete(item)">
                     Delete
-                </ion-option-button>
+                </ion-option-button>   -->
                 <ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
             </ion-item>
 

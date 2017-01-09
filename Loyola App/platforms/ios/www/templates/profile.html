@@ -1,5 +1,41 @@
 ﻿<ion-view view-title="Profile">
     <ion-content>
-        <h1>Profile</h1>
-    </ion-content>
+
+        <div class="item item-divider">
+            <a class="item item-icon-right" href="#/app/psummary">
+                <i class="icon ion-edit"></i>
+                Edit Information
+            </a>
+        </div>
+
+        <h4 class="note">Note: This information can be used for your future reference and to personalize the app to your needs</h4>
+
+        
+        <div class="list">
+            <ion-list type="card">
+                <a class="item item-icon-left" href="#">
+                    <i class="icon ion-person"></i>
+                    {{fname + " " + lname}}
+                </a>
+
+                <a class="item item-icon-left" href="#">
+                    <i class="icon ion-email"></i>
+                    {{email}}
+                </a>
+
+                <a class="item item-icon-left" href="#">
+                    <i class="icon ion-locked"></i>
+                    {{pass}}
+                </a>
+                <a class="item item-icon-left" href="#">
+                    <i class="icon ion-university"></i>
+                    {{grade}}
+                </a>
+            </ion-list>
+        </div>
+
+            
+
+
+</ion-content>
 </ion-view>

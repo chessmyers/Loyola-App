@@ -157,10 +157,18 @@ h2 .abt {
     padding-bottom:10px;
 }
 
-ion-content.adjust {
-    padding-top:94px;
-}
-
 ion-content.adjust2 {
     padding-top: 95px;
+}
+
+.newsbut {
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
+}
+
+.scroll-container	{
+   width: 2100px;
+   height: 1275px;
+   background: url('../templates/other/campusmap.jpg') no-repeat
 }
