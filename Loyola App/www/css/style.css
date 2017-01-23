@@ -40,9 +40,10 @@
    float:inherit;
    margin-left: 30%;
    margin-top: 15px;
+}
 
-
-
+a.main {
+    font-size:110%;
 }
 
 p{

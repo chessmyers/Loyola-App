@@ -3942,6 +3942,15 @@ a.subdued {
       color: #fff; }
     .bar.bar-positive.bar-footer {
       background-image: linear-gradient(180deg, #0c60ee, #0c60ee 50%, transparent 50%); }
+  .bar.bar-loyola {
+    border-color: #001533;
+    background-color: #001F4B;
+    background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
+    color: #fff; }
+    .bar.bar-positive .title {
+      color: #fff; }
+    .bar.bar-positive.bar-footer {
+      background-image: linear-gradient(180deg, #0c60ee, #0c60ee 50%, transparent 50%); }
   .bar.bar-calm {
     border-color: #0a9dc7;
     background-color: #11c1f3;
@@ -4398,6 +4407,17 @@ a.subdued {
     background-color: #fff;
     color: #387ef5; }
 
+.tabs-loyola > .tabs,
+.tabs.tabs-loyola {
+  border-color: #001533;
+  background-color: #001f4b;
+  background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
+  color: #fff; }
+  .tabs-loyola > .tabs .tab-item .badge,
+  .tabs.tabs-loyola .tab-item .badge {
+    background-color: #fff;
+    color: #387ef5; }
+
 .tabs-calm > .tabs,
 .tabs.tabs-calm {
   border-color: #0a9dc7;
@@ -4652,6 +4672,10 @@ a.subdued {
 
 .tabs-striped.tabs-background-positive .tabs {
   background-color: #387ef5;
+  background-image: none; }
+
+.tabs-striped.tabs-background-loyola .tabs {
+  background-color: #001f4b;
   background-image: none; }
 
 .tabs-striped.tabs-background-calm .tabs {
@@ -5159,6 +5183,10 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .tab-item.active.tab-item-positive,
   .tab-item.activated.tab-item-positive {
     color: #387ef5; }
+  .tab-item.tab-item-active.tab-item-loyola,
+  .tab-item.active.tab-item-loyola,
+  .tab-item.activated.tab-item-loyola {
+    color: #001F4B; }
   .tab-item.tab-item-active.tab-item-calm,
   .tab-item.active.tab-item-calm,
   .tab-item.activated.tab-item-calm {
@@ -5708,6 +5736,10 @@ ion-tabs.tabs-color-active-dark .tab-item {
     border-color: #0c60ee;
     background-color: #387ef5;
     color: #fff; }
+  .item.item-loyola {
+    border-color: #00163D;
+    background-color: #001F4B;
+    color: #fff; }
   .item.item-calm {
     border-color: #0a9dc7;
     background-color: #11c1f3;
@@ -5803,6 +5835,22 @@ ion-tabs.tabs-color-active-dark .tab-item {
     .item .item-content.activated.item-positive.item-complex > .item-content {
       border-color: #0c60ee;
       background-color: #0c60ee; }
+  .item.active.item-loyola,
+  .item.activated.item-loyola,
+  .item-complex.active .item-content.item-loyola,
+  .item-complex.activated .item-content.item-loyola,
+  .item .item-content.active.item-loyola,
+  .item .item-content.activated.item-loyola {
+    border-color: #000b1a;
+    background-color: #001533; }
+    .item.active.item-loyola.item-complex > .item-content,
+    .item.activated.item-loyola.item-complex > .item-content,
+    .item-complex.active .item-content.item-loyola.item-complex > .item-content,
+    .item-complex.activated .item-content.item-loyola.item-complex > .item-content,
+    .item .item-content.active.item-loyola.item-complex > .item-content,
+    .item .item-content.activated.item-loyola.item-complex > .item-content {
+      border-color: #000b1a;
+      background-color: #001533; }
   .item.active.item-calm,
   .item.activated.item-calm,
   .item-complex.active .item-content.item-calm,
@@ -8638,6 +8686,31 @@ progress {
       background: transparent;
       color: #387ef5; }
       .button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {
+        background-color: #387ef5;
+        box-shadow: none;
+        color: #fff; }
+    .button.button-loyola {
+    border-color: transparent;
+    background-color: #001f4b;
+    color: #fff; }
+    .button.button-loyola:hover {
+      color: #fff;
+      text-decoration: none; }
+    .button.button-loyola.active, .button.button-loyola.activated {
+      background-color: #001533; }
+    .button.button-loyola.button-clear {
+      border-color: transparent;
+      background: none;
+      box-shadow: none;
+      color: #387ef5; }
+    .button.button-loyola.button-icon {
+      border-color: transparent;
+      background: none; }
+    .button.button-loyola.button-outline {
+      border-color: #387ef5;
+      background: transparent;
+      color: #387ef5; }
+      .button.button-loyola.button-outline.active, .button.button-loyola.button-outline.activated {
         background-color: #387ef5;
         box-shadow: none;
         color: #fff; }

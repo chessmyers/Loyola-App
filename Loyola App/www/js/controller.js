@@ -184,8 +184,13 @@
                     window.open('tel:2133815121', '_system');
                 };
 
-                $scope.sendmail = function () {
-                    var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
+                $scope.sendmail = function (n) {
+                    if (n == 0) {
+                        var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
+                    }
+                    else {
+                        var ref = cordova.InAppBrowser.open('mailto:llampietti@loyolahs.edu', '_system', 'location=yes');
+                    }
                 };
 
                 $scope.openmap = function () {
@@ -331,11 +336,14 @@
     }
     else
     {
-        $scope.tabcol = "tabs-positive";
+        $scope.tabcol = "tabs-loyola";
     }
     $scope.changeBar = function (bar) {
         var storage = window.localStorage;
         switch (bar) {
+            case "loyola": $scope.tabcol = "tabs-loyola";
+                storage.setItem("tab", "tabs-loyola");
+                break;
             case "dark": $scope.tabcol = "tabs-dark";
                 storage.setItem("tab", "tabs-dark");
                 break;
@@ -365,30 +373,43 @@
         }
     }
 
+    //storage.removeItem("fname");
+    //storage.removeItem("lname");
+    //storage.removeItem("email");
+    //storage.removeItem("pass");
+    //storage.removeItem("grade");
+
     if (storage.getItem("fname") != null) {
         $scope.fname = storage.getItem("fname");
     }
     else {
-        $scope.fname = "";
+        $scope.fname = "Joe";
     }
     if (storage.getItem("lname") != null) {
         $scope.lname = storage.getItem("lname");
     }
     else {
-        $scope.lname = "";
+        $scope.lname = "Student";
     }
     if (storage.getItem("email") != null) {
         $scope.email = storage.getItem("email");
     }
     else {
-        $scope.email = "";
+        $scope.email = "joestudent@lhsla.org";
     }
     if (storage.getItem("pass") != null) {
         $scope.pass = storage.getItem("pass");
     }
     else {
-        $scope.pass = "";
+        $scope.pass = "12345";
     }
+    if (storage.getItem("grade") != null) {
+        $scope.grade = storage.getItem("grade");
+    }
+    else {
+        $scope.grade = "Not a Student";
+    }
+
     $scope.pInfoSave = function () {
         var fn = document.getElementById("fname").value;
         var ln = document.getElementById("lname").value;
@@ -404,13 +425,6 @@
         $scope.email = em;
         $scope.pass = pass;
    
-    }
-
-    if (storage.getItem("grade") != null) {
-        $scope.grade = storage.getItem("grade");
-    }
-    else {
-        $scope.grade = "Not a Student";
     }
 
     $scope.changeGrade = function (n) {
@@ -455,7 +469,7 @@
         }
         // February, April, June, September, November
 
-        $http.get('templates/quotelist.php')
+        $http.get('templates/other/quotelist.php')
     .then(function (response) {
         //First function handles success
         var qData = response.data.Quotes;
@@ -635,8 +649,8 @@
             $scope.loctext = "In-App Browser"
             storage.setItem("link", "_blank");
             $scope.delItems();
-            $scope.tabcol = "tabs-positive";
-            storage.setItem("tab", "tabs-positive");
+            $scope.tabcol = "tabs-loyola";
+            storage.setItem("tab", "tabs-loyola");
             storage.setItem("fname", null);
             storage.setItem("lname", null);
             storage.setItem("email", null);
@@ -649,6 +663,38 @@
             $scope.grade = "Not a Student";
             alert("Restart app to see all changes take effect.");
         }
-    }   
+    }
+
+    $scope.getFiles = function () {
+        $http.get('http://www.rilsoftwarewin8.com/other/files.php')
+       .then(function (response) {
+           //First function handles success
+           $scope.fileData = response.data.Files;
+           
+
+       }, function (response) {
+           //Second function handles error
+           document.getElementById("qtext").innerText = "Unable to load quotes :(";
+           document.getElementById("qauthor").innerText = "";
+       })
+    }
+
+    $scope.filePic = function (type) {
+        switch (type) {
+            case "PDF": return "templates/other/pdf_icon.png";
+                break;
+            case "Word": return "templates/other/word_icon.png";
+                break;
+            case "Link": return "templates/other/link_icon.png";
+                break;
+            case "Other": return "templates/other/other_icon.png";
+                break;
+        }
+    }
+
+    $scope.openFile = function (url) {
+        var ref = cordova.InAppBrowser.open(url, '_system');
+        ref.addEventListener('loaderror', function (event) { alert("Cannot load file :("); });
+    }
 
 }]);

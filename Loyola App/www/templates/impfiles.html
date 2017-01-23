@@ -1,0 +1,14 @@
+﻿<ion-view view-title="Important Files">
+    <ion-content ng-init="getFiles()">
+        
+        <ion-list>
+            <ion-item ng-repeat="item in fileData" item="item" href="#" ng-click="openFile(item.URL)" class="item-thumbnail-left item-text-wrap">
+                <img src="{{filePic(item.Type)}}" />
+
+               <h2 style="font-size: 150%;"> {{ item.Name }}  </h2>
+
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
