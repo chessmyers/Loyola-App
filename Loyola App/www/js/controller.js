@@ -4,7 +4,6 @@
 
     $scope.tailorPlatform = function () {
         var ios = ionic.Platform.isIOS();
-        var android = ionic.Platform.isAndroid();
         if (ios) {
             $scope.topbord = 70;
             $scope.topbord2 = 65;
@@ -14,7 +13,7 @@
         else {
             $scope.topbord = 50;
             $scope.topbord2 = 46;
-            $scope.topbord3 = 93;
+            $scope.topbord3 = 92;
             $scope.topbord4 = 93;
         }
     }
@@ -176,8 +175,16 @@
                 };
 
                 $scope.openq = function () {
-                    var ref = cordova.InAppBrowser.open('http://sc.loyolahs.edu/', $scope.linkloc, 'location=yes');
+                    var q;
+                    if ($scope.grade == "Not a Student") {
+                        q = 'http://parentportal.loyolahs.edu/';
+                    }
+                    else {
+                        q = 'http://sc.loyolahs.edu/';
+                    }
+                    var ref = cordova.InAppBrowser.open(q, $scope.linkloc, 'location=yes');
                     ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                    
                 };
 
                 $scope.dialcall = function () {
@@ -219,9 +226,10 @@
 
     $scope.edit = function (item) {
         var ind = $scope.items.indexOf(item);
-        var prom = prompt("Enter New Text for Task", $scope.items[ind]);
+        var state = item.charAt(item.length - 1);
+        var prom = prompt("Enter New Text for Task", $scope.items[ind].slice(0,-1));
         if (prom != null && prom != "") {
-            $scope.items[ind] = prom;
+            $scope.items[ind] = prom + state;
         }
         $scope.saveItemData()
     };
@@ -379,36 +387,39 @@
     //storage.removeItem("pass");
     //storage.removeItem("grade");
 
-    if (storage.getItem("fname") != null) {
-        $scope.fname = storage.getItem("fname");
+    $scope.loadpInfo = function () {
+        if (storage.getItem("fname") != null) {
+            $scope.fname = storage.getItem("fname");
+        }
+        else {
+            $scope.fname = "Loyola";
+        }
+        if (storage.getItem("lname") != null) {
+            $scope.lname = storage.getItem("lname");
+        }
+        else {
+            $scope.lname = "Student";
+        }
+        if (storage.getItem("email") != null) {
+            $scope.email = storage.getItem("email");
+        }
+        else {
+            $scope.email = "loyolastudent@lhsla.org";
+        }
+        if (storage.getItem("pass") != null) {
+            $scope.pass = storage.getItem("pass");
+        }
+        else {
+            $scope.pass = "12345";
+        }
+        if (storage.getItem("grade") != null) {
+            $scope.grade = storage.getItem("grade");
+        }
+        else {
+            $scope.grade = "9th Grader";
+        }
     }
-    else {
-        $scope.fname = "Joe";
-    }
-    if (storage.getItem("lname") != null) {
-        $scope.lname = storage.getItem("lname");
-    }
-    else {
-        $scope.lname = "Student";
-    }
-    if (storage.getItem("email") != null) {
-        $scope.email = storage.getItem("email");
-    }
-    else {
-        $scope.email = "joestudent@lhsla.org";
-    }
-    if (storage.getItem("pass") != null) {
-        $scope.pass = storage.getItem("pass");
-    }
-    else {
-        $scope.pass = "12345";
-    }
-    if (storage.getItem("grade") != null) {
-        $scope.grade = storage.getItem("grade");
-    }
-    else {
-        $scope.grade = "Not a Student";
-    }
+    $scope.loadpInfo();
 
     $scope.pInfoSave = function () {
         var fn = document.getElementById("fname").value;
@@ -641,7 +652,7 @@
         $scope.newsbut4 = "button-stable";
         $scope.newsbut5 = "button-stable";
     }
-
+    
 
     $scope.resetData = function () {
         if (confirm("Are you sure you want to reset everything?")) {
@@ -656,11 +667,13 @@
             storage.setItem("email", null);
             storage.setItem("pass", null);
             storage.setItem("grade", null)
+            $scope.loadpInfo();
             $scope.fname = "";
             $scope.lname = "";
             $scope.email = "";
             $scope.pass = "";
-            $scope.grade = "Not a Student";
+            $scope.grade = "9th Grader";
+            $scope.changeTheme(0);
             alert("Restart app to see all changes take effect.");
         }
     }
@@ -695,6 +708,80 @@
     $scope.openFile = function (url) {
         var ref = cordova.InAppBrowser.open(url, '_system');
         ref.addEventListener('loaderror', function (event) { alert("Cannot load file :("); });
+    }
+
+    $scope.toLoyola = function () {
+        // Load Loyola Theme
+        $scope.butcol1 = "button-loyola";
+        $scope.butcol2 = "button-loyola2";
+        $scope.butcol3 = "button-loyola";
+        $scope.butcol4 = "button-loyola2";
+        $scope.butcol5 = "button-loyola";
+        $scope.butcol6 = "button-loyola2";
+        $scope.butcol7 = "button-loyola";
+        $scope.butcol8 = "button-loyola2";
+        $scope.itcol1 = "item-stable";
+        $scope.itcol2 = "item-loyola";
+        $scope.itcol3 = "item-stable";
+        $scope.itcol4 = "item-loyola";
+        $scope.itcol5 = "item-stable";
+        $scope.itcol6 = "item-loyola";
+        $scope.tabcol = "tabs-loyola";
+    }
+
+    $scope.toColorful = function () {
+        // Load colorful theme
+        $scope.butcol1 = "button-royal";
+        $scope.butcol2 = "button-dark";
+        $scope.butcol3 = "button-energized";
+        $scope.butcol4 = "button-assertive";
+        $scope.butcol5 = "button-positive";
+        $scope.butcol6 = "button-balanced";
+        $scope.butcol7 = "button-salmon";
+        $scope.butcol8 = "button-calm";
+        $scope.itcol1 = "item-calm";
+        $scope.itcol2 = "item-positive";
+        $scope.itcol3 = "item-energized";
+        $scope.itcol4 = "item-salmon";
+        $scope.itcol5 = "item-royal";
+        $scope.itcol6 = "item-balanced"
+        $scope.tabcol = "tabs-calm";
+    }
+
+    $scope.loadTheme = function () {
+        if (storage.getItem("theme") != null) {
+            var them = storage.getItem("theme");
+        }
+        else {
+            var them = "Loyola";
+        }
+        if (them == "Loyola") {
+            $scope.toLoyola();
+            $scope.curtheme = "Loyola Theme";
+        }
+        else {
+            $scope.toColorful();
+            $scope.curtheme = "Colorful Theme";
+        }
+    }
+
+    $scope.loadTheme();
+
+    $scope.changeTheme = function (n) {
+        if (n == 0) {
+            //Loyola Theme
+            storage.setItem("theme", "Loyola");
+            $scope.toLoyola();
+            $scope.curtheme = "Loyola Theme";
+            storage.setItem("tab", "tabs-loyola");
+        }
+        else {
+            //Colorful Theme
+            storage.setItem("theme", "Colorful");
+            $scope.toColorful();
+            $scope.curtheme = "Colorful Theme";
+            storage.setItem("tab", "tabs-calm");
+        }
     }
 
 }]);

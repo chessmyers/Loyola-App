@@ -3945,11 +3945,11 @@ a.subdued {
   .bar.bar-loyola {
     border-color: #001533;
     background-color: #001F4B;
-    background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
+    background-image: linear-gradient(0deg, #001F4B, #001F4B 50%, transparent 50%);  
     color: #fff; }
-    .bar.bar-positive .title {
+    .bar.bar-loyola .title {
       color: #fff; }
-    .bar.bar-positive.bar-footer {
+    .bar.bar-loyola.bar-footer {
       background-image: linear-gradient(180deg, #0c60ee, #0c60ee 50%, transparent 50%); }
   .bar.bar-calm {
     border-color: #0a9dc7;
@@ -4411,7 +4411,7 @@ a.subdued {
 .tabs.tabs-loyola {
   border-color: #001533;
   background-color: #001f4b;
-  background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
+  background-image: linear-gradient(0deg, #001f4b, #001f4b 50%, transparent 50%);  
   color: #fff; }
   .tabs-loyola > .tabs .tab-item .badge,
   .tabs.tabs-loyola .tab-item .badge {
@@ -5187,6 +5187,10 @@ ion-tabs.tabs-color-active-dark .tab-item {
   .tab-item.active.tab-item-loyola,
   .tab-item.activated.tab-item-loyola {
     color: #001F4B; }
+  .tab-item.tab-item-active.tab-item-salmon,
+  .tab-item.active.tab-item-salmon,
+  .tab-item.activated.tab-item-salmon {
+    color: #ff6699; }
   .tab-item.tab-item-active.tab-item-calm,
   .tab-item.active.tab-item-calm,
   .tab-item.activated.tab-item-calm {
@@ -5740,6 +5744,10 @@ ion-tabs.tabs-color-active-dark .tab-item {
     border-color: #00163D;
     background-color: #001F4B;
     color: #fff; }
+  .item.item-salmon {
+    border-color: transparent;
+    background-color: #ff6699;
+    color: #fff; }
   .item.item-calm {
     border-color: #0a9dc7;
     background-color: #11c1f3;
@@ -5851,6 +5859,22 @@ ion-tabs.tabs-color-active-dark .tab-item {
     .item .item-content.activated.item-loyola.item-complex > .item-content {
       border-color: #000b1a;
       background-color: #001533; }
+    .item.active.item-salmon,
+  .item.activated.item-salmon,
+  .item-complex.active .item-content.item-salmon,
+  .item-complex.activated .item-content.item-salmon,
+  .item .item-content.active.item-salmon,
+  .item .item-content.activated.item-salmon {
+    border-color: transparent;
+    background-color: #ff3377; }
+    .item.active.item-salmon.item-complex > .item-content,
+    .item.activated.item-salmon.item-complex > .item-content,
+    .item-complex.active .item-content.item-salmon.item-complex > .item-content,
+    .item-complex.activated .item-content.item-salmon.item-complex > .item-content,
+    .item .item-content.active.item-salmon.item-complex > .item-content,
+    .item .item-content.activated.item-salmon.item-complex > .item-content {
+      border-color: transparent;
+      background-color: #ff3377; }
   .item.active.item-calm,
   .item.activated.item-calm,
   .item-complex.active .item-content.item-calm,
@@ -8661,6 +8685,32 @@ progress {
       background: transparent;
       color: #b2b2b2; }
       .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
+        background-color: #b2b2b2;
+        box-shadow: none;
+        color: #fff; }
+
+   .button.button-loyola2 {
+    border-color: #001f4b;
+    background-color: #f8f8f8;
+    color: #444; }
+    .button.button-loyola2:hover {
+      color: #444;
+      text-decoration: none; }
+    .button.button-loyola2.active, .button.button-loyola2.activated {
+      background-color: #e5e5e5; }
+    .button.button-loyola2.button-clear {
+      border-color: #001f4b;
+      background: none;
+      box-shadow: none;
+      color: #b2b2b2; }
+    .button.button-loyola2.button-icon {
+      border-color: #001f4b;
+      background: none; }
+    .button.button-loyola2.button-outline {
+      border-color: #001f4b;
+      background: transparent;
+      color: #b2b2b2; }
+      .button.button-loyola2.button-outline.active, .button.button-loyola2.button-outline.activated {
         background-color: #b2b2b2;
         box-shadow: none;
         color: #fff; }
