@@ -7,14 +7,16 @@
         if (ios) {
             $scope.topbord = 70;
             $scope.topbord2 = 65;
-            $scope.topbord3 = 113;
-            $scope.topbord4 = 90;
+            $scope.topbord3 = 64;
+            $scope.topbord4 = 44;
+            $scope.belltext = "#";
         }
         else {
             $scope.topbord = 50;
             $scope.topbord2 = 46;
             $scope.topbord3 = 92;
             $scope.topbord4 = 93;
+            $scope.belltext = "Schedule ";
         }
     }
     $scope.tailorPlatform();
@@ -59,7 +61,7 @@
     $scope.calculateGPA = function ($scope) {
         // Grade calculation function, first stores all grade values and course modifiers in disposable variables, 
         // Element id's correspond to function (gs1 = grade select #1)
-        // Now just to figure out the grade calculation formula loyola uses      
+        // Should now output correct loyola grade calculation     
         var i;
         var grade = new Array();
         var level = new Array();
@@ -196,7 +198,7 @@
                         var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
                     }
                     else {
-                        var ref = cordova.InAppBrowser.open('mailto:llampietti@loyolahs.edu', '_system', 'location=yes');
+                        var ref = cordova.InAppBrowser.open('mailto:helpdesk@loyolahs.edu', '_system', 'location=yes');
                     }
                 };
 

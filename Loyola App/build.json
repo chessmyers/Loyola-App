@@ -1,0 +1,24 @@
+{
+    "android": {
+        "release": {
+            "keystore": "C:\\loyola-hub-v1.keystore",
+            "storePassword": "pswd123",
+            "alias": "chessM",
+            "password": "pswd123",
+            "keystoreType": ""
+        }
+    },
+
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Development",
+            "developmentTeam": "C4G89B25TJ",
+            "packageType": "development"
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution",
+            "developmentTeam": "C4G89B25TJ",
+            "packageType": "app-store"
+        }
+    }
+}

@@ -1,19 +1,35 @@
-<ion-view view-title="Cub News">
+﻿<!--iOS Version-->
 
-    <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light" style="margin-top:-{{topbord2}}px;">
-        <div class="tabs">
-            <a class="tab-item active" href="#">
-                News Feed
-            </a>
-            <a class="tab-item" href="#/app/newspaper">
-                Loyalist
-            </a>
-        </div>
+<ion-view view-title="Loyalist">
+
+<ion-header-bar class="bar-loyola" style="margin-top:{{topbord3}}px; height:44px;">
+
+    <table style="width:100%; margin-top:0px;">
+        <tr>
+            <td>  <button ng-click="switchNews('N')" class="button button-small {{newsbut1}} newsbut">News</button>  </td>
+            <td>  <button ng-click="switchNews('A')" class="button button-small {{newsbut2}} newsbut">A&E</button>  </td>
+            <td>  <button ng-click="switchNews('O')" class="button button-small {{newsbut3}} newsbut">Opinion</button>  </td>
+            <td>  <button ng-click="switchNews('F')" class="button button-small {{newsbut4}} newsbut">Feature</button>  </td>
+            <td>  <button ng-click="switchNews('S')" class="button button-small {{newsbut5}} newsbut">Sports</button>  </td>
+        </tr>
+    </table>
+</ion-header-bar>
+
+<ion-content has-tabs ng-init="setNews()">
+
+    <div style="margin-top: {{topbord4}}px;">
+        <ion-list>
+            <ion-item ng-repeat="item in newsSrc" item="item" href="#" ng-click="openNews(item.URL)" class="item-thumbnail-left item-text-wrap">
+                <img src="{{item.Pic}}" />
+
+                {{ item.Title }}
+
+                <h3>By {{ item.Author }}</h3>
+
+            </ion-item>
+        </ion-list>
     </div>
 
-  <ion-content has-tabs ng-init="loadNews()">
-      <div style="overflow: auto!important; -webkit-overflow-scrolling: touch!important;">
-          <iframe src='https://www.juicer.io/api/feeds/loyalistfeed/iframe' id="newsFrame" ng-init="resizeFrame()" frameborder='0' width='100%' height="200" style='display:block;margin:5px auto; overflow: scroll; -webkit-overflow-scrolling: touch;'></iframe>
-          </div>
+
 </ion-content>
 </ion-view>
