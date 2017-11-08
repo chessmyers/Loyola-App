@@ -10,6 +10,7 @@
             $scope.topbord3 = 64;
             $scope.topbord4 = 44;
             $scope.belltext = "#";
+            $scope.stopver = "i";
         }
         else {
             $scope.topbord = 50;
@@ -17,6 +18,7 @@
             $scope.topbord3 = 92;
             $scope.topbord4 = 93;
             $scope.belltext = "Schedule ";
+            $scope.stopver = "a";
         }
     }
     $scope.tailorPlatform();
@@ -139,52 +141,63 @@
 
     };
 
+
                 $scope.twitter = function () {
-                    var ref = cordova.InAppBrowser.open('https://twitter.com/LoyolaHS', '_system', 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://twitter.com/LoyolaHS', '_system', 'location=yes, closebuttoncaption="Close"');
                 };
 
                 $scope.instagram = function () {
-                    var ref = cordova.InAppBrowser.open('https://www.instagram.com/loyolahigh/', '_blank', 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://www.instagram.com/loyolahigh/', '_blank', 'location=yes, closebuttoncaption="Close"');
                     ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
                 };
 
                 $scope.cubcash = function () {
-                    var ref = cordova.InAppBrowser.open('https://loyolahs.campuscardcenter.com/ch/login.html', $scope.linkloc, 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://loyolahs.campuscardcenter.com/ch/login.html', $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
                     ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
                 };
 
                 $scope.naviance = function () {
-                    var ref = cordova.InAppBrowser.open('https://connection.naviance.com/family-connection/auth/login/?hsid=loyolahs', $scope.linkloc, 'location=yes');
-                    ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
-                };
+                    if ($scope.grade == "Teacher") {
+                        var ref = cordova.InAppBrowser.open('https://succeed.naviance.com/auth/signin', $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
+                    }
+                    else {
+                        var ref = cordova.InAppBrowser.open('https://connection.naviance.com/family-connection/auth/login/?hsid=loyolahs', $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
+                        // ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
+                    }
+                }
 
                 $scope.youtube = function () {
-                    var ref = cordova.InAppBrowser.open('https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined', '_system', 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://www.youtube.com/channel/UCXwvxAsy5e_Jxi5SGzJ7lpA/undefined', '_system', 'location=yes, closebuttoncaption="Close"');
                 };
 
                 $scope.facebook = function () {
-                    var ref = cordova.InAppBrowser.open('https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203', '_system', 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://www.facebook.com/pages/Loyola-High-School-Los-Angeles/19920204203', '_system', 'location=yes, closebuttoncaption="Close"');
                 };
 
                 $scope.website = function () {
-                    var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', $scope.linkloc, 'location=yes');
+                    var ref = cordova.InAppBrowser.open('http://www.loyolahs.edu/', $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
                     ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
                 };
 
                 $scope.opencanvas = function () {
-                    var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', $scope.linkloc, 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/login/ldap', $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
                     ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
                 };
 
                 $scope.openq = function () {
                     var q;
-                    if ($scope.grade == "Not a Student") {
-                        q = 'http://parentportal.loyolahs.edu/';
+                    switch ($scope.grade) {
+                        case "Parent": {
+                            q = 'http://parentportal.loyolahs.edu/';
+                        }
+                        case "Teacher": {
+                            q = 'https://q.loyolahs.edu/Home/LoginDS'
+                        }
+                        default: {
+                            q = 'http://sc.loyolahs.edu/';
+                        }  
                     }
-                    else {
-                        q = 'http://sc.loyolahs.edu/';
-                    }
-                    var ref = cordova.InAppBrowser.open(q, $scope.linkloc, 'location=yes');
+                    var ref = cordova.InAppBrowser.open(q, $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
                     ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
                     
                 };
@@ -194,27 +207,70 @@
                 };
 
                 $scope.sendmail = function (n) {
-                    if (n == 0) {
-                        var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
-                    }
-                    else {
-                        var ref = cordova.InAppBrowser.open('mailto:helpdesk@loyolahs.edu', '_system', 'location=yes');
+
+                    //Used in help+support page
+                    switch (n) {
+                        case 0: {
+                            var ref = cordova.InAppBrowser.open('mailto:info@loyolahs.edu', '_system', 'location=yes');
+                            break;
+                        }
+                        case 1: {
+                            var ref = cordova.InAppBrowser.open('mailto:helpdesk@loyolahs.edu', '_system', 'location=yes');
+                            break;
+                        }
+                        case 2: {
+                            var ref = cordova.InAppBrowser.open('mailto:christophermyers@lhsla.org', '_system', 'location=yes');
+                            break;
+                        }
+                        case 3: {
+                            var ref = cordova.InAppBrowser.open('https://itunes.apple.com/us/app/the-loyola-hub/id1293595176?ls=1&mt=8', '_system', 'location=yes, closebuttoncaption="Close"');
+                            break;
+                        }
                     }
                 };
 
+                $scope.emailTeacher = function (address) {
+                    // Used in teacher directory
+                    var ref = cordova.InAppBrowser.open(address, '_system', 'location=yes');
+                }
+
                 $scope.openmap = function () {
-                    var ref = cordova.InAppBrowser.open('http://maps.google.com/maps?daddr=Loyola+High+School', '_system', 'location=yes');
+                    var ref = cordova.InAppBrowser.open('http://maps.google.com/maps?daddr=Loyola+High+School', '_system', 'location=yes, closebuttoncaption="Close"');
                 };
 
                 $scope.openann = function () {
-                    var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/courses/354/', $scope.linkloc, 'location=yes');
-                    ref.addEventListener('loaderror', function (event) { alert("Cannot load announcements :("); });
+                    var ref = cordova.InAppBrowser.open('https://loyolahs.instructure.com/courses/354/', $scope.linkloc, 'location=yes, closebuttoncaption="Close"');
+                 //   ref.addEventListener('loaderror', function (event) { alert("Cannot load announcements :("); });
                 };
 
+                $scope.opencal = function () {
+                    var ref = cordova.InAppBrowser.open('http://theloyalist.org/wp-content/uploads/2017/09/appcalendar.html', '_blank', 'location=no, closebuttoncaption="Close"');
+                    ref.addEventListener('loaderror', function (event) { alert("Cannot open calendar. Please try again."); })
+                }
+
                 $scope.openHandbook = function () {
-                    var ref = cordova.InAppBrowser.open('https://drive.google.com/open?id=0Bw41Zks9I_f_cWFXZ3J3dDczajQ', $scope.linkloc, 'location=yes');
+                    var ref = cordova.InAppBrowser.open('https://drive.google.com/open?id=0Bw41Zks9I_f_cWFXZ3J3dDczajQ', $scope.linkloc, 'location=no, closebuttoncaption="Close"');
                     ref.addEventListener('loaderror', function (event) { alert("Cannot open handbook. Sorry."); });
                 };
+
+                $scope.openStopIt = function (n) {
+                    switch (n) {
+                        case 0: {
+                            var ref = cordova.InAppBrowser.open('https://appweb.stopitsolutions.com/', '_blank', 'location=yes, closebuttoncaption="Close"');
+                            break;
+                        }
+                        case 1: {
+                            if ($scope.stopver == "i") {
+                                // iPhone Version
+                                var ref = cordova.InAppBrowser.open('https://itunes.apple.com/us/app/stop-t/id719179764?mt=8', '_system', 'location=yes, closebuttoncaption="Close"');
+                            }
+                            else {
+                                // Android Version
+                                var ref = cordova.InAppBrowser.open('https://play.google.com/store/apps/details?id=com.stopitcyberbully.mobile', '_system', 'location=yes, closebuttoncaption="Close"');
+                            }
+                        }             
+                    }
+                }
     
 
 
@@ -450,8 +506,9 @@
                 break;
             case 12: $scope.grade = "12th Grader";
                 break;
-            case 0: $scope.grade = "Not a Student";
+            case 13: $scope.grade = "Parent";
                 break;
+            case 14: $scope.grade = "Teacher";
         }
     }
 
@@ -531,7 +588,7 @@
     }
 
     $scope.openNews = function (address) {
-        var ref = cordova.InAppBrowser.open(address, '_blank', 'location=yes');
+        var ref = cordova.InAppBrowser.open(address, '_blank', 'location=no, closebuttoncaption="Close"');
         ref.addEventListener('loaderror', function (event) { alert("URL not found. Sorry."); });
     }
 
@@ -680,6 +737,39 @@
         }
     }
 
+    $scope.setSchedules = function () {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1;
+        var s = month.toString() + year.toString();
+        var schedules = $scope.scheduleData[s];
+        $scope.todaySchedule = schedules[today.getDate() - 1];
+        $scope.tomSchedule = schedules[today.getDate()];
+//  ^^Shortcut in code which means Schedules JSON object MUST define schedule for first day on each month on end of previous month's array
+        //if ($scope.tomschedule == "undefined") {
+        //    month += 1;
+        //    s = month.toString() + year.toString();
+        //    schedules = $scope.scheduleData[s];
+        //    $scope.tomSchedule = schedules[0];
+        //}
+    }
+
+    $scope.loadSchedules = function () {
+        $http.get('http://rilsoftwarewin8.com/other/schedules.php')
+    .then(function (response) {
+        //Success
+        $scope.todaySchedule = "Loading...";
+        $scope.tomSchedule = "Loading...";
+        $scope.scheduleData = response.data.Schedules;
+        $scope.setSchedules();
+    }, function (response) {
+        //Failure
+        $scope.todaySchedule = "Cannot Load";
+        $scope.tomSchedule = "Cannot Load";
+    });
+
+    }
+
     $scope.getFiles = function () {
         $http.get('http://www.rilsoftwarewin8.com/other/files.php')
        .then(function (response) {
@@ -689,8 +779,7 @@
 
        }, function (response) {
            //Second function handles error
-           document.getElementById("qtext").innerText = "Unable to load quotes :(";
-           document.getElementById("qauthor").innerText = "";
+           alert("Unable to load files :(");
        })
     }
 
@@ -729,6 +818,13 @@
         $scope.itcol5 = "item-stable";
         $scope.itcol6 = "item-loyola";
         $scope.tabcol = "tabs-loyola";
+        $scope.bellcol1 = "button-loyola2";
+        $scope.bellcol2 = "button-loyola";
+        $scope.bellcol3 = "button-loyola2";
+        $scope.bellcol4 = "button-loyola";
+        $scope.bellcol5 = "button-loyola2";
+        $scope.bellcol6 = "button-loyola";
+        $scope.bellcol7 = "button-dark";
     }
 
     $scope.toColorful = function () {
@@ -748,6 +844,13 @@
         $scope.itcol5 = "item-royal";
         $scope.itcol6 = "item-balanced"
         $scope.tabcol = "tabs-calm";
+        $scope.bellcol1 = "button-royal";
+        $scope.bellcol2 = "button-balanced";
+        $scope.bellcol3 = "button-calm";
+        $scope.bellcol4 = "button-energized";
+        $scope.bellcol5 = "button-assertive";
+        $scope.bellcol6 = "button-positive";
+        $scope.bellcol7 = "button-dark";
     }
 
     $scope.loadTheme = function () {

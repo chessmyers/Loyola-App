@@ -26,3 +26,7 @@ LINKS:
 -Clean and more modern UI than existing cubinfo app
 -Basically mobile version of school website, so all features and info that is available online
 -Sign-in feature with your class schedule plus reminders and notifications
+
+
+ANDROID PACKAGENAME = com.loyola.loyolahub
+IOS PACKAGENAME = loyolahub

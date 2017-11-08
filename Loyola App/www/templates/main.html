@@ -7,17 +7,26 @@
             <!--Middle Content-->
       <!--      <ion-side-menu-content>
                 <ion-content has-bouncing="true" overflow-scroll="true">     -->
+
+                <div class="card" ng-init="loadSchedules()">
+                    <div class="item item-divider">
+                        <a style="text-decoration:none; color: black;" href="#/app/bells">Today: {{ todaySchedule }}  </a>
+                    </div>
+                    <div class="item item-divider">
+                        <a style="text-decoration:none; color: black;" href="#/app/bells">Tomorrow: {{ tomSchedule }}   </a>
+                    </div>
+                </div>
                 
                 <div class="list card padding" >    
                     
                     <a class="button button-block {{butcol1}} padding main" href="" ng-click="openann()">
                         Daily Announcements
                     </a>
-                    <a class="button button-block {{butcol2}} padding main" href="#/app/calendar">
+                    <a class="button button-block {{butcol2}} padding main" href="" ng-click="opencal()">
                         Calendar
                     </a>
                     <a class="button button-block {{butcol3}} padding main" href="#/app/bells">
-                        Bell Schedule
+                        Bell Schedules
                     </a>
                     <a class="button button-block {{butcol4}} padding main" href="" ng-click="opencanvas()">
                         Canvas

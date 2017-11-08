@@ -116,14 +116,23 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
-        .state('app.impfiles', {
-            url: '/impfiles',
-            views: {
-                'loyolaguide-tab': {
-                    templateUrl: 'templates/impfiles.html'
-                }
+    .state('app.impfiles', {
+        url: '/impfiles',
+        views: {
+            'loyolaguide-tab': {
+                templateUrl: 'templates/impfiles.html'
             }
-        })
+        }
+    })
+
+    .state('app.stopit', {
+        url: '/stopit',
+        views: {
+            'loyolaguide-tab': {
+                templateUrl: 'templates/stopit.html'
+            }
+        }
+    })
 
     .state('app.optionspage', {
         url: '/optionspage',

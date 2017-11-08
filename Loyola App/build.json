@@ -11,13 +11,13 @@
 
     "ios": {
         "debug": {
-            "codeSignIdentity": "iPhone Development",
-            "developmentTeam": "C4G89B25TJ",
+            "codeSignIdentity": "iPhone Developer",
+            "developmentTeam": "7U3VEHV6MV",
             "packageType": "development"
         },
         "release": {
-            "codeSignIdentity": "iPhone Distribution",
-            "developmentTeam": "C4G89B25TJ",
+            "codeSignIdentity": "iPhone Developer",
+            "developmentTeam": "7U3VEHV6MV",
             "packageType": "app-store"
         }
     }

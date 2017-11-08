@@ -38,8 +38,26 @@
    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
    transition: background 500ms;
    float:inherit;
-   margin-left: 30%;
-   margin-top: 15px;
+    /*margin-left: 30%;
+    margin-top: 15px;*/
+    position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+
+}
+
+.linkdiv {
+    width: 49%;
+    height:100px;
+    display: inline-block;
+    /*border: 1px solid red;*/    
+    position:relative;
+
+}
+
+.linkh4 {
+    margin-top:60px;
 }
 
 a.main {
@@ -47,7 +65,7 @@ a.main {
 }
 
 p{
-  font-family: monospace;
+
   text-align: center;
 
 }
@@ -66,14 +84,8 @@ h5 {
 
 h4 {
     text-align: center;
-    font-family: monospace;
 
-}
 
-.linkdiv {
-    width: 49%;
-    display: inline-block;
-/*    border: 1px solid red;    */
 }
 
 .gpatbox {
